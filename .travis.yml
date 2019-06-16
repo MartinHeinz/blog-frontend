@@ -1,0 +1,22 @@
+matrix:
+  include:
+  - language: node_js
+    node_js:
+      - "node"
+    script:
+      - docker build -t blog-frontend ./frontend
+
+  - language: node_js
+    addons:
+      sonarcloud:
+        organization: martinheinz-github
+        token:
+          secure: "TODO"
+    before_script:
+    - echo "TODO Install with npm"
+    - echo "TODO Generate reports"
+    script:
+    - sonar-scanner
+
+notifications:
+  email: false
