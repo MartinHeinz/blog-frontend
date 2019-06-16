@@ -27,9 +27,9 @@ module.exports = {
         'jest-watch-typeahead/filename',
         'jest-watch-typeahead/testname',
     ],
-    testResultsProcessor: "jest-sonar-reporter",
+    testResultsProcessor: 'jest-sonar-reporter',
     coverageReporters: [
-        "lcov",
-        "text",
-    ]
+        'lcov',
+        'text',
+    ],
 };
