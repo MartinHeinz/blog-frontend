@@ -1,5 +1,6 @@
 import '@fortawesome/fontawesome-free/css/all.css';
 import Vue from 'vue';
+import router from './router';
 import upperFirst from 'lodash/upperFirst';
 import camelCase from 'lodash/camelCase';
 import moment from 'moment';
@@ -56,5 +57,6 @@ Vue.use(SocialSharing);
 Vue.filter('formatDate', value => moment(String(value)).format('MM/DD/YYYY hh:mm'));
 
 new Vue({
+    router,
     render: h => h(App),
 }).$mount('#app');
