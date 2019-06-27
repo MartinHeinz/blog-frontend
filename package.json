@@ -17,7 +17,8 @@
     "moment": "^2.24.0",
     "vue": "^2.6.10",
     "vue-social-sharing": "^2.4.3",
-    "vuetify": "^1.5.14"
+    "vuetify": "^1.5.14",
+    "vue-router": "latest"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.7.0",
