@@ -1,10 +1,10 @@
 import '@fortawesome/fontawesome-free/css/all.css';
 import Vue from 'vue';
-import router from './router';
 import upperFirst from 'lodash/upperFirst';
 import camelCase from 'lodash/camelCase';
 import moment from 'moment';
 import Vuetify from 'vuetify';
+import router from './router';
 
 import App from './App.vue';
 
