@@ -2,7 +2,7 @@
     <li class="post-item">
         <div class="meta"><time :datetime="published | formatDate" itemprop="datePublished">{{published}}</time></div>
         <span>
-            <a :href="url"> {{ value }}</a>
+            <router-link :to="url">{{value}}</router-link>
         </span>
     </li>
 </template>

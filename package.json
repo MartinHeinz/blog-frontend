@@ -16,9 +16,9 @@
     "lodash": "^4.17.11",
     "moment": "^2.24.0",
     "vue": "^2.6.10",
+    "vue-router": "latest",
     "vue-social-sharing": "^2.4.3",
-    "vuetify": "^1.5.14",
-    "vue-router": "latest"
+    "vuetify": "^1.5.14"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.7.0",

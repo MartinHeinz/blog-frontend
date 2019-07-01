@@ -1,5 +1,5 @@
 <template>
-    <a class="tag-link" :href="'/tags/' + url + '/'">{{name}}</a>
+    <router-link class="tag-link" :to="'/tags/' + url + '/'">{{name}}</router-link>
 </template>
 
 <script>
