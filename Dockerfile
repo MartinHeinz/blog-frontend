@@ -13,5 +13,5 @@ COPY startup.sh /home/
 RUN chmod 777 /home/startup.sh
 CMD ["sh", "/home/startup.sh"]
 
-# docker build -t blog-frontend .
-# docker run -p 8080:8080 --rm blog-frontend
+# docker build -t martinheinz/blog_frontend .
+# docker run -p 8080:8080 --rm martinheinz/blog_frontend
