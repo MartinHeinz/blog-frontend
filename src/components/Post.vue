@@ -21,8 +21,8 @@ export default {
     },
     mounted() {
         axios
-            .get('http://localhost:1234/api/v1/')
-            .then((response) => { (this.info = response); });
+            .get(`http://localhost:1234/api/v1/posts/${this.$route.params.id}`) // TODO Get data from response instead of printing whole response
+            .then((response) => { (this.text = response); });
     },
 };
 </script>
