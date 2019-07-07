@@ -7,6 +7,8 @@
             {value: 'Gentle Intro to Order Preserving Encryption', url: '/blog/2', published: '05-05-2019'},
             {value: 'Pytest Tips and Tricks', url: '/blog/3', published: '05-05-2019'}]"></PostList>
         </div>
+        <BookList :items="this.books">
+        </BookList>
         <BaseFooter :items="[
                 {value: 'Home', url: '/home'},
                 {value: 'Contact', url: '/contact'},
@@ -16,16 +18,27 @@
 </template>
 
 <script>
+import axios from 'axios';
 import BaseFooter from './BaseFooter.vue';
 import About from './About.vue';
+import BookList from './BookList.vue';
 import PostList from './PostList.vue';
 
 export default {
     name: 'Home',
+    props: {
+        books: Array,
+    },
     components: {
         About,
         PostList,
         BaseFooter,
+        BookList,
+    },
+    mounted() {
+        axios
+            .get('http://localhost:1234/api/v1/books/')
+            .then((response) => { (this.books = response.data.books); });
     },
 };
 </script>
@@ -40,7 +53,7 @@ export default {
         float: left;
         width: 50%;
         padding: 10px;
-        height: 300px; /* Should be removed. Only for demonstration */
+        height: 50%;
     }
 
     /* Clear floats after the columns */
