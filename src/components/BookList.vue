@@ -4,7 +4,7 @@
         <p>These are books I read. My review and opinion about some of them can be found in blog posts.</p>
         <div class="books">
             <BookListItem v-for="item in items"
-                          v-bind:src="item.cover_url"
+                          v-bind:src="item.src"
                           v-bind:alt="item.alt"
                           v-bind:url="item.url"
                           v-bind:key="item.id">

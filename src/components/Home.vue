@@ -2,10 +2,7 @@
     <div class="content">
         <div class="row">
             <About></About>
-            <PostList :items="[
-            {value: 'Gentle Intro to Attribute Based Encryption', url: '/blog/1', published: '05-05-2019'},
-            {value: 'Gentle Intro to Order Preserving Encryption', url: '/blog/2', published: '05-05-2019'},
-            {value: 'Pytest Tips and Tricks', url: '/blog/3', published: '05-05-2019'}]"></PostList>
+            <PostList :items="this.posts"></PostList>
         </div>
         <BookList :items="this.books">
         </BookList>
@@ -23,11 +20,13 @@ import BaseFooter from './BaseFooter.vue';
 import About from './About.vue';
 import BookList from './BookList.vue';
 import PostList from './PostList.vue';
+import { API_URL } from '@/common/config';
 
 export default {
     name: 'Home',
     props: {
         books: Array,
+        posts: Array,
     },
     components: {
         About,
@@ -36,9 +35,21 @@ export default {
         BookList,
     },
     mounted() {
-        axios
-            .get('http://localhost:1234/api/v1/books/')
-            .then((response) => { (this.books = response.data.books); });
+        let self = this;
+        axios.all([this.getBooks(), this.getPosts()])
+            .then(axios.spread((books, posts) => {
+                self.books = books.data.books;
+                self.posts = posts.data.posts;
+            }));
+    },
+    methods: {
+        getBooks() {
+            return axios.get(`${API_URL}books/`);
+        },
+
+        getPosts() {
+            return axios.get(`${API_URL}posts/`);
+        },
     },
 };
 </script>

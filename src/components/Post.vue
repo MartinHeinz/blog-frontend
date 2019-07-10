@@ -13,6 +13,7 @@
 
 <script>
 import axios from 'axios';
+import { API_URL } from '@/common/config';
 
 export default {
     name: 'Post',
@@ -21,14 +22,16 @@ export default {
     },
     mounted() {
         axios
-            .get(`http://localhost:1234/api/v1/posts/${this.$route.params.id}`) // TODO Get data from response instead of printing whole response
-            .then((response) => { (this.text = response); });
+            .get(`${API_URL}posts/${this.$route.params.id}`) // TODO Move this call to Blog.vue, so I don't need to call it twice (here and in PostHeader)
+            .then((response) => {
+                this.text = response.data.text;
+            });
     },
 };
 </script>
 
 <style>
 
-    span {
-    }
+    span {}
+
 </style>

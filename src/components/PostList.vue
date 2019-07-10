@@ -4,9 +4,9 @@
         <span>
             <ul class="post-list">
                 <PostListItem v-for="item in items"
-                              v-bind:url="item.url"
-                              v-bind:value="item.value"
-                              v-bind:published="item.published"
+                              v-bind:url="'/blog/'+ item.id"
+                              v-bind:value="item.title"
+                              v-bind:published="item.posted_on"
                               v-bind:key="item.id">
                 </PostListItem>
             </ul>
