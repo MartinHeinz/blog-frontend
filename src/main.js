@@ -4,11 +4,11 @@ import upperFirst from 'lodash/upperFirst';
 import camelCase from 'lodash/camelCase';
 import moment from 'moment';
 import Vuetify from 'vuetify';
-import router from './router';
+import router from '@/router';
 
-import App from './App.vue';
+import App from '@/App.vue';
 
-import './assets/style.css';
+import '@/assets/style.css';
 
 Vue.config.productionTip = false;
 

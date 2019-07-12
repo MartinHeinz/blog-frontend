@@ -35,10 +35,10 @@
 
 <script>
 
-import BaseMenu from './BaseMenu.vue';
-import MenuActions from './MenuActions.vue';
-import SocialSharingList from './SocialSharingList.vue';
-import TableOfContents from './TableOfContents.vue';
+import BaseMenu from '@/components/BaseMenu.vue';
+import MenuActions from '@/components/MenuActions.vue';
+import SocialSharingList from '@/components/SocialSharingList.vue';
+import TableOfContents from '@/components/TableOfContents.vue';
 import axios from 'axios';
 import { API_URL } from '@/common/config';
 
@@ -63,7 +63,6 @@ export default {
                         url_previous: `/blog/${response.data.previous_post_id}`,
                         url_next: `/blog/${response.data.next_post_id}`,
                     };
-                    console.log(response.data);
                 });
         },
     },

@@ -28,7 +28,7 @@
 </template>
 
 <script>
-import BaseTag from './BaseTag.vue';
+import BaseTag from '@/components/BaseTag.vue';
 import axios from 'axios';
 import { API_URL } from '@/common/config';
 

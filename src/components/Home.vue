@@ -16,10 +16,10 @@
 
 <script>
 import axios from 'axios';
-import BaseFooter from './BaseFooter.vue';
-import About from './About.vue';
-import BookList from './BookList.vue';
-import PostList from './PostList.vue';
+import BaseFooter from '@/components/BaseFooter.vue';
+import About from '@/components/About.vue';
+import BookList from '@/components/BookList.vue';
+import PostList from '@/components/PostList.vue';
 import { API_URL } from '@/common/config';
 
 export default {
@@ -35,7 +35,7 @@ export default {
         BookList,
     },
     mounted() {
-        let self = this;
+        const self = this;
         axios.all([this.getBooks(), this.getPosts()])
             .then(axios.spread((books, posts) => {
                 self.books = books.data.books;

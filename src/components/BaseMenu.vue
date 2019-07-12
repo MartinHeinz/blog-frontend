@@ -12,7 +12,7 @@
 
 <script>
 
-import BaseMenuItem from './BaseMenuItem.vue';
+import BaseMenuItem from '@/components/BaseMenuItem.vue';
 
 export default {
     name: 'BaseMenu',

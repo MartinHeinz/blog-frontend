@@ -27,10 +27,10 @@
 </template>
 
 <script>
-import Navigation from './Navigation.vue';
-import PostHeader from './PostHeader.vue';
-import Post from './Post.vue';
-import BaseFooter from './BaseFooter.vue';
+import Navigation from '@/components/Navigation.vue';
+import PostHeader from '@/components/PostHeader.vue';
+import Post from '@/components/Post.vue';
+import BaseFooter from '@/components/BaseFooter.vue';
 import axios from 'axios';
 import { API_URL } from '@/common/config';
 

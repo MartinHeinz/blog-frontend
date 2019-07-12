@@ -15,7 +15,7 @@
 
 <script>
 
-import BookListItem from './BookListItem.vue';
+import BookListItem from '@/components/BookListItem.vue';
 
 export default {
     name: 'BookList',

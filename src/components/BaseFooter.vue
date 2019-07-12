@@ -19,7 +19,7 @@
 
 <script>
 
-import BaseFooterItem from './BaseFooterItem.vue';
+import BaseFooterItem from '@/components/BaseFooterItem.vue';
 
 export default {
     name: 'BaseFooter',
