@@ -7,7 +7,7 @@
         <BookList :items="this.books">
         </BookList>
         <BaseFooter :items="[
-                {value: 'Home', url: '/home'},
+                {value: 'Home', url: '/'},
                 {value: 'Contact', url: '/contact'},
                 {value: 'About', url: '/about'}]">
         </BaseFooter>

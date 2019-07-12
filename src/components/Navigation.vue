@@ -3,7 +3,6 @@
         <v-icon id="menu-icon" href="#"
                 v-on:click="active = !active"
                 v-bind:class="{ 'menu-active' : active }">fas fa-bars fa-lg</v-icon>
-
         <v-icon id="menu-icon-tablet" href="#"
                 v-on:click="active = !active"
                 v-bind:class="{ 'menu-active' : active }">fas fa-bars fa-lg</v-icon>
@@ -40,6 +39,8 @@ import BaseMenu from './BaseMenu.vue';
 import MenuActions from './MenuActions.vue';
 import SocialSharingList from './SocialSharingList.vue';
 import TableOfContents from './TableOfContents.vue';
+import axios from 'axios';
+import { API_URL } from '@/common/config';
 
 export default {
     name: 'Navigation',
@@ -50,11 +51,27 @@ export default {
         items: Array,
         actions: Object,
     },
+    watch: {
+        $route: 'updateNavigation',
+    },
+    methods: {
+        updateNavigation() {
+            axios
+                .get(`${API_URL}posts/${this.$route.params.id}`)
+                .then((response) => {
+                    this.actions = { // TODO catch the cases when next/previous points to null blog (with ID 0)
+                        url_previous: `/blog/${response.data.previous_post_id}`,
+                        url_next: `/blog/${response.data.next_post_id}`,
+                    };
+                    console.log(response.data);
+                });
+        },
+    },
     data() {
         return {
             active: false,
             path: window.location.href,
-            tree: {
+            tree: { // TODO axios
                 nodes: [
                     {
                         label: 'item1',

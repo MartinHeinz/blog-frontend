@@ -2,26 +2,23 @@
     <div id="app">
         <Navigation
             :items="[
-            {value: 'Home', url: '/home'},
+            {value: 'Home', url: '/'},
             {value: 'Contact', url: '/contact'},
             {value: 'About', url: '/about'}]"
             :actions="{
-            url_previous: 'url_previous_test',
-            url_next: 'url_previous_test',
+            url_previous: '/blog/' + previous,
+            url_next: '/blog/' + next,
                 }">
         </Navigation>
         <div class="content">
-            <PostHeader title="This is title"
-                        author="Martin"
-                        published="05-05-2019 17:43"
-                        :tags="[
-                            {name: 'Golang', url: 'go'},
-                            {name: 'Vue.js', url: 'vue'}
-                        ]">
+            <PostHeader :title="this.header.title"
+                        :author="this.header.author"
+                        :published="this.header.published"
+                        :tags="this.tags">
             </PostHeader>
-            <Post text="Body of post"/>
+            <Post :text="this.text"/>
             <BaseFooter :items="[
-                {value: 'Home', url: '/home'},
+                {value: 'Home', url: '/'},
                 {value: 'Contact', url: '/contact'},
                 {value: 'About', url: '/about'}]">
             </BaseFooter>
@@ -34,6 +31,8 @@ import Navigation from './Navigation.vue';
 import PostHeader from './PostHeader.vue';
 import Post from './Post.vue';
 import BaseFooter from './BaseFooter.vue';
+import axios from 'axios';
+import { API_URL } from '@/common/config';
 
 export default {
     name: 'Blog',
@@ -42,6 +41,28 @@ export default {
         PostHeader,
         Post,
         BaseFooter,
+    },
+    props: {
+        text: String,
+        header: Object,
+        tags: Object,
+        previous: Number,
+        next: Number,
+    },
+    mounted() {
+        axios
+            .get(`${API_URL}posts/${this.$route.params.id}`)
+            .then((response) => {
+                this.text = response.data.text;
+                this.header = {
+                    title: response.data.title,
+                    author: response.data.author,
+                    published: response.data.posted_on,
+                };
+                this.tags = response.data.tags;
+                this.previous = response.data.previous_post_id;
+                this.next = response.data.next_post_id;
+            });
     },
 };
 </script>

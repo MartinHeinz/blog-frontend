@@ -29,6 +29,8 @@
 
 <script>
 import BaseTag from './BaseTag.vue';
+import axios from 'axios';
+import { API_URL } from '@/common/config';
 
 export default {
     name: 'PostHeader',
@@ -38,6 +40,21 @@ export default {
         title: String,
         author: String,
         published: String,
+    },
+    watch: {
+        $route: 'updateHeaderData',
+    },
+    methods: {
+        updateHeaderData() {
+            axios
+                .get(`${API_URL}posts/${this.$route.params.id}`)
+                .then((response) => {
+                    this.title = response.data.title;
+                    this.author = response.data.author;
+                    this.published = response.data.posted_on;
+                    this.tags = response.data.tags;
+                });
+        },
     },
 };
 </script>

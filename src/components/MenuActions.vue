@@ -2,18 +2,22 @@
     <span id="actions">
       <ul>
         <li>
-            <v-hover>
-            <v-icon :href="url_previous" @mouseover="prev_active = true" @mouseout="prev_active = false"
-                    slot-scope="{ hover }"
-                    :class="`${hover? 'icon-active': 'icon-inactive'}`">fas fa-chevron-left</v-icon>
-            </v-hover>
+            <router-link :to="url_previous">
+                <v-hover>
+                <v-icon @mouseover="prev_active = true" @mouseout="prev_active = false"
+                        slot-scope="{ hover }"
+                        :class="`${hover? 'icon-active': 'icon-inactive'}`">fas fa-chevron-left</v-icon>
+                </v-hover>
+            </router-link>
         </li>
         <li>
-            <v-hover>
-            <v-icon :href="url_next" @mouseover="next_active = true" @mouseout="next_active = false"
-                    slot-scope="{ hover }"
-                    :class="`${hover? 'icon-active': 'icon-inactive'}`">fas fa-chevron-right</v-icon>
-            </v-hover>
+            <router-link :to="url_next">
+                <v-hover>
+                <v-icon :href="url_next" @mouseover="next_active = true" @mouseout="next_active = false"
+                        slot-scope="{ hover }"
+                        :class="`${hover? 'icon-active': 'icon-inactive'}`">fas fa-chevron-right</v-icon>
+                </v-hover>
+            </router-link>
         </li>
         <li>
             <v-hover>
