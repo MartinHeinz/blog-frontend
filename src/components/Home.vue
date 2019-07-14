@@ -35,12 +35,7 @@ export default {
         BookList,
     },
     mounted() {
-        const self = this;
-        axios.all([this.getBooks(), this.getPosts()])
-            .then(axios.spread((books, posts) => {
-                self.books = books.data.books;
-                self.posts = posts.data.posts;
-            }));
+        this.populateFields();
     },
     methods: {
         getBooks() {
@@ -49,6 +44,14 @@ export default {
 
         getPosts() {
             return axios.get(`${API_URL}posts/`);
+        },
+        populateFields() {
+            const self = this;
+            axios.all([this.getBooks(), this.getPosts()])
+                .then(axios.spread((books, posts) => {
+                    self.books = books.data.books;
+                    self.posts = posts.data.posts;
+                }));
         },
     },
 };
