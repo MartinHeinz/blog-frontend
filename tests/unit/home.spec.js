@@ -1,10 +1,12 @@
-import { shallowMount } from '@vue/test-utils';
+import { createLocalVue, shallowMount } from '@vue/test-utils';
 import Home from '@/components/Home.vue';
+import { API_URL } from '@/common/config';
 
 import * as axios from 'axios';
 
-// Mock out all top level functions, such as get, put, delete and post:
-jest.mock('axios');
+const MockAdapter = require('axios-mock-adapter');
+
+const mock = new MockAdapter(axios);
 
 const books = {
     books: [
@@ -44,26 +46,36 @@ const posts = {
 
 describe('Home.vue', () => {
     it('Gets all Books', () => {
-        const resp = books;
-        axios.get.mockImplementation(() => Promise.resolve({ status: 200, data: resp }));
+        mock.onGet(`${API_URL}books/`).reply(200, books);
 
-        return Home.methods.getBooks().then(data => expect(data).toEqual({ status: 200, data: books }));
+        return Home.methods.getBooks().then(data => expect(data.data).toEqual(books));
     });
     it('Gets all Posts', () => {
-        const resp = posts;
-        axios.get.mockImplementation(() => Promise.resolve({ status: 200, data: resp }));
+        mock.onGet(`${API_URL}posts/`).reply(200, posts);
 
-        return Home.methods.getPosts().then(data => expect(data).toEqual({ status: 200, data: posts }));
+        return Home.methods.getPosts().then(data => expect(data.data).toEqual(posts));
     });
     it('Calls Mounted method', () => {
-        const resp = posts;
         const populateFields = jest.fn();
-        axios.get.mockImplementation(() => Promise.resolve({ status: 200, data: resp }));
+        mock.onGet(`${API_URL}books/`).reply(200, {});
         shallowMount(Home, {
             methods: {
                 populateFields,
             },
         });
         expect(populateFields).toHaveBeenCalled();
+    });
+    it('Sets Books and Posts fields', () => {
+        mock.onGet(`${API_URL}books/`).reply(200, books);
+        mock.onGet(`${API_URL}posts/`).reply(200, posts);
+        const localVue = createLocalVue();
+
+        const wrapper = shallowMount(Home, {
+            localVue,
+        });
+        return wrapper.vm.populateFields().then(() => {
+            expect(wrapper.props().books).toEqual(books.books);
+            expect(wrapper.props().posts).toEqual(posts.posts);
+        });
     });
 });

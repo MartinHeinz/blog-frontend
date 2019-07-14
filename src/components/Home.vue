@@ -47,7 +47,7 @@ export default {
         },
         populateFields() {
             const self = this;
-            axios.all([this.getBooks(), this.getPosts()])
+            return axios.all([this.getBooks(), this.getPosts()])
                 .then(axios.spread((books, posts) => {
                     self.books = books.data.books;
                     self.posts = posts.data.posts;
