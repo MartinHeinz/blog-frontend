@@ -50,19 +50,24 @@ export default {
         next: Number,
     },
     mounted() {
-        axios
-            .get(`${API_URL}posts/${this.$route.params.id}`)
-            .then((response) => {
-                this.text = response.data.text;
-                this.header = {
-                    title: response.data.title,
-                    author: response.data.author,
-                    published: response.data.posted_on,
-                };
-                this.tags = response.data.tags;
-                this.previous = response.data.previous_post_id;
-                this.next = response.data.next_post_id;
-            });
+        this.fetchHeaderAndNavigationData();
+    },
+    methods: {
+        fetchHeaderAndNavigationData() {
+            return axios
+                .get(`${API_URL}posts/${this.$route.params.id}`)
+                .then((response) => {
+                    this.text = response.data.text;
+                    this.header = {
+                        title: response.data.title,
+                        author: response.data.author,
+                        published: response.data.posted_on,
+                    };
+                    this.tags = response.data.tags;
+                    this.previous = response.data.previous_post_id;
+                    this.next = response.data.next_post_id;
+                });
+        },
     },
 };
 </script>
