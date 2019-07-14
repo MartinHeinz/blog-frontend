@@ -29,6 +29,13 @@ module.exports = {
     ],
     testResultsProcessor: 'jest-sonar-reporter',
     collectCoverage: true,
+    collectCoverageFrom: [
+        '**/*.{js,vue}',
+        '!**/node_modules/**',
+        '!**/vendor/**',
+        '!**/dist/**',
+        '!**/tests/**',
+    ],
     coverageReporters: [
         'lcov',
         'text',
