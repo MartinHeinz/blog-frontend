@@ -21,7 +21,7 @@ export default {
     },
     methods: {
         updateContent() {
-            axios
+            return axios
                 .get(`${API_URL}posts/${this.$route.params.id}`)
                 .then((response) => {
                     this.text = response.data.text;
