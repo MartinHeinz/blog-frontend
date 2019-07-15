@@ -46,7 +46,7 @@ export default {
     },
     methods: {
         updateHeaderData() {
-            axios
+            return axios
                 .get(`${API_URL}posts/${this.$route.params.id}`)
                 .then((response) => {
                     this.title = response.data.title;
