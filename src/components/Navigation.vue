@@ -56,7 +56,7 @@ export default {
     },
     methods: {
         updateNavigation() {
-            axios
+            return axios
                 .get(`${API_URL}posts/${this.$route.params.id}`)
                 .then((response) => {
                     this.actions = { // TODO catch the cases when next/previous points to null blog (with ID 0)
