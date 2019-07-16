@@ -11,7 +11,7 @@
             </span>
 
             <div class="postdate">
-                <time :datetime="published | formatDate" itemprop="datePublished">{{published}}</time>
+                <time :datetime="published | formatDate" itemprop="datePublished">{{ published | formatDate }}</time>
             </div>
 
             <div class="article-tag">
