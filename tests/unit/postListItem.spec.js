@@ -8,7 +8,7 @@ describe('PostListItem.vue', () => {
         const localVue = createLocalVue();
         const router = new Router({ mode: 'history' });
         localVue.use(Router);
-        localVue.filter('formatDate', value => moment(String(value)).format('MM/DD/YYYY hh:mm')); // TODO import this from @/main.js
+        localVue.filter('formatDate', value => moment(String(value)).format('ll')); // TODO import this from @/main.js
 
         const published = '2018-01-01T15:30:00Z';
         const url = '/blog/9';
@@ -25,6 +25,6 @@ describe('PostListItem.vue', () => {
         });
 
         expect(wrapper.html()).toContain(`<a href="${url}" class="">${value}</a>`);
-        expect(wrapper.html()).toContain('<time datetime="01/01/2018 04:30" itemprop="datePublished">01/01/2018 04:30</time>');
+        expect(wrapper.html()).toContain(`<time datetime="${published}" itemprop="datePublished">Jan 1, 2018</time>`);
     });
 });

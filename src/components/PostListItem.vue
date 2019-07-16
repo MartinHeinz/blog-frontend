@@ -1,6 +1,6 @@
 <template>
     <li class="post-item">
-        <div class="meta"><time :datetime="published | formatDate" itemprop="datePublished">{{ published | formatDate }}</time></div>
+        <div class="meta"><time :datetime="published" itemprop="datePublished">{{ published | formatDate }}</time></div>
         <span>
             <router-link :to="url">{{value}}</router-link>
         </span>
