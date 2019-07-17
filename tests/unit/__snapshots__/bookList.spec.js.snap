@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BookList.vue renders correcly 1`] = `
+<section>
+  <h1>Learning and Reading</h1>
+  <p>These are books I read. My review and opinion about some of them can be found in blog posts.</p>
+  <div class="books"><a href="https://www.gopl.io/" class="no-underline"><img src="https://www.gopl.io/cover.png" alt="The Go Programming Language" height="195" width="130"></a><a href="https://www.goodreads.com/book/show/3735293-clean-code" class="no-underline"><img src="https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1436202607i/3735293._SX318_.jpg" alt="Clean Code: A Handbook of Agile Software Craftsmanship" height="195" width="130"></a></div>
+</section>
+`;

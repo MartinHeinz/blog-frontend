@@ -9,6 +9,7 @@ module.exports = {
         '^.+\\.vue$': 'vue-jest',
         '.+\\.(css|styl|less|sass|scss|svg|png|jpg|ttf|woff|woff2)$': 'jest-transform-stub',
         '^.+\\.jsx?$': 'babel-jest',
+        '^.+\\.js$': '<rootDir>/node_modules/babel-jest',
     },
     transformIgnorePatterns: [
         '/node_modules/',
@@ -30,7 +31,7 @@ module.exports = {
     testResultsProcessor: 'jest-sonar-reporter',
     collectCoverage: true,
     collectCoverageFrom: [
-        '**/*.{js,vue}',
+        '**/src/**/*.{js,vue}',
         '!**/node_modules/**',
         '!**/vendor/**',
         '!**/dist/**',

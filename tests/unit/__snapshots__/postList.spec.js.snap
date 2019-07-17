@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PostList.vue renders correcly 1`] = `
+<div class="column">
+  <h1>Blog Posts</h1> <span><ul class="post-list"><li class="post-item"><div class="meta"><time datetime="0001-01-01T00:00:00Z" itemprop="datePublished">Jan 1, 0001</time></div> <span><a>First Blog Post</a></span></li>
+  <li class="post-item">
+    <div class="meta"><time datetime="0001-01-01T00:00:00Z" itemprop="datePublished">Jan 1, 0001</time></div> <span><a>3rd Blog Post</a></span>
+  </li>
+  </ul>
+  </span>
+</div>
+`;

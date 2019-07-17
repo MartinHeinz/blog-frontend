@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BaseFooter.vue renders correcly 1`] = `
+<footer id="footer">
+  <div class="footer-left">
+    Copyright © 2019 Martin Heinz
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <li><a>Home</a></li>
+        <li><a>Contact</a></li>
+        <li><a>About</a></li>
+      </ul>
+    </nav>
+  </div>
+</footer>
+`;

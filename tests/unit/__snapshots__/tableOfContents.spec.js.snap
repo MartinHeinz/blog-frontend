@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TableOfContents.vue renders correcly 1`] = `
+<div><a>
+    <div class="toc-level-1"></div>
+    <div><a href="/item1">
+        <div class="toc-level-2">item1</div>
+        <div><a href="/item1.1">
+            <div class="toc-level-3">item1.1</div>
+          </a></div>
+        <div><a href="/item1.2">
+            <div class="toc-level-3">item1.2</div>
+            <div><a href="/item1.2.1">
+                <div class="toc-level-4">item1.2.1</div>
+              </a></div>
+          </a></div>
+      </a></div>
+    <div><a href="/item2">
+        <div class="toc-level-2">item2</div>
+      </a></div>
+  </a></div>
+`;
