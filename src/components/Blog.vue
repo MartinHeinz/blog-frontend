@@ -42,12 +42,18 @@ export default {
         Post,
         BaseFooter,
     },
-    props: {
-        text: String,
-        header: Object,
-        tags: Object,
-        previous: Number,
-        next: Number,
+    data() {
+        return {
+            text: '',
+            header: {
+                title: '',
+                author: '',
+                published: '',
+            },
+            tags: null,
+            previous: 0,
+            next: 0,
+        };
     },
     mounted() {
         this.fetchHeaderAndNavigationData();

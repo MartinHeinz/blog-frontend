@@ -66,15 +66,15 @@ describe('Blog .vue', () => {
             propsData,
         });
         return wrapper.vm.fetchHeaderAndNavigationData().then(() => {
-            expect(wrapper.props().text).toEqual(post.text);
-            expect(wrapper.props().header).toEqual({
+            expect(wrapper.vm.$data.text).toEqual(post.text);
+            expect(wrapper.vm.$data.header).toEqual({
                 title: post.title,
                 author: post.author,
                 published: post.posted_on,
             });
-            expect(wrapper.props().tags).toEqual(post.tags);
-            expect(wrapper.props().previous).toEqual(post.previous_post_id);
-            expect(wrapper.props().next).toEqual(post.next_post_id);
+            expect(wrapper.vm.$data.tags).toEqual(post.tags);
+            expect(wrapper.vm.$data.previous).toEqual(post.previous_post_id);
+            expect(wrapper.vm.$data.next).toEqual(post.next_post_id);
         });
     });
 });
