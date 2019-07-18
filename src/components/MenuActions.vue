@@ -4,7 +4,7 @@
         <li>
             <router-link :to="url_previous">
                 <v-hover>
-                <v-icon @mouseover="prev_active = true" @mouseout="prev_active = false"
+                <v-icon :href="url_previous" @mouseover="prev_active = true" @mouseout="prev_active = false"
                         slot-scope="{ hover }"
                         :class="`${hover? 'icon-active': 'icon-inactive'}`">fas fa-chevron-left</v-icon>
                 </v-hover>

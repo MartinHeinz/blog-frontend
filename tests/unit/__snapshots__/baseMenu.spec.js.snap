@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BaseMenu.vue renders correcly 1`] = `<span id="nav"><ul><a href="/" class="router-link-exact-active router-link-active">Home</a><a href="/contact" class="">Contact</a><a href="/about" class="">About</a></ul></span>`;

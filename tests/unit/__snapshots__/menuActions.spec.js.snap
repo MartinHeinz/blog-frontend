@@ -1,0 +1,145 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MenuActions.vue renders correcly 1`] = `
+<span
+  id="actions"
+>
+  <ul>
+    <li>
+      <a>
+        <i
+          aria-hidden="true"
+          class="v-icon fas fa-chevron-left theme--light icon-inactive"
+          href="/blog/1"
+        />
+      </a>
+    </li>
+     
+    <li>
+      <a>
+        <i
+          aria-hidden="true"
+          class="v-icon fas fa-chevron-right theme--light icon-inactive"
+          href="/blog/3"
+        />
+      </a>
+    </li>
+     
+    <li>
+      <i
+        aria-hidden="true"
+        class="v-icon fas fa-chevron-up theme--light icon-inactive"
+        href="#"
+      />
+    </li>
+     
+    <li>
+      <i
+        aria-hidden="true"
+        class="v-icon v-icon--link  fas fa-share-alt theme--light icon-inactive"
+        href="#"
+      />
+    </li>
+  </ul>
+   
+  <span
+    class="info"
+    style="display: none;"
+  >
+    Previous post
+  </span>
+   
+  <span
+    class="info"
+    style="display: none;"
+  >
+    Next post
+  </span>
+   
+  <span
+    class="info"
+    style="display: none;"
+  >
+    Back to top
+  </span>
+   
+  <span
+    class="info"
+    style="display: none;"
+  >
+    Share post
+  </span>
+</span>
+`;
+
+exports[`MenuActions.vue renders correcly when icon is hovered 1`] = `
+<span
+  id="actions"
+>
+  <ul>
+    <li>
+      <a>
+        <i
+          aria-hidden="true"
+          class="v-icon fas fa-chevron-left theme--light icon-inactive"
+          href="/blog/1"
+        />
+      </a>
+    </li>
+     
+    <li>
+      <a>
+        <i
+          aria-hidden="true"
+          class="v-icon fas fa-chevron-right theme--light icon-inactive"
+          href="/blog/3"
+        />
+      </a>
+    </li>
+     
+    <li>
+      <i
+        aria-hidden="true"
+        class="v-icon fas fa-chevron-up theme--light icon-inactive"
+        href="#"
+      />
+    </li>
+     
+    <li>
+      <i
+        aria-hidden="true"
+        class="v-icon v-icon--link  fas fa-share-alt theme--light icon-inactive"
+        href="#"
+      />
+    </li>
+  </ul>
+   
+  <span
+    class="info"
+    style="display: none;"
+  >
+    Previous post
+  </span>
+   
+  <span
+    class="info"
+    style=""
+  >
+    Next post
+  </span>
+   
+  <span
+    class="info"
+    style="display: none;"
+  >
+    Back to top
+  </span>
+   
+  <span
+    class="info"
+    style="display: none;"
+  >
+    Share post
+  </span>
+</span>
+`;
