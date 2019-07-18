@@ -24,10 +24,6 @@ import { API_URL } from '@/common/config';
 
 export default {
     name: 'Home',
-    props: {
-        books: Array,
-        posts: Array,
-    },
     components: {
         About,
         PostList,
@@ -36,6 +32,12 @@ export default {
     },
     mounted() {
         this.populateFields();
+    },
+    data() {
+        return {
+            books: [],
+            posts: [],
+        };
     },
     methods: {
         getBooks() {

@@ -74,8 +74,8 @@ describe('Home.vue', () => {
             localVue,
         });
         return wrapper.vm.populateFields().then(() => {
-            expect(wrapper.props().books).toEqual(books.books);
-            expect(wrapper.props().posts).toEqual(posts.posts);
+            expect(wrapper.vm.$data.books).toEqual(books.books);
+            expect(wrapper.vm.$data.posts).toEqual(posts.posts);
         });
     });
 });
