@@ -3,6 +3,7 @@ import PostHeader from '@/components/PostHeader.vue';
 import { API_URL } from '@/common/config';
 
 import * as axios from 'axios';
+import moment from 'moment';
 
 const MockAdapter = require('axios-mock-adapter');
 
@@ -34,6 +35,7 @@ describe('PostHeader.vue', () => {
     it('Sets header attributes of blog post header', () => {
         mock.onGet(`${API_URL}posts/2`).reply(200, post);
         const localVue = createLocalVue();
+        localVue.filter('formatDate', value => moment(String(value)).format('ll')); // TODO import this from @/main.js
 
         const wrapper = shallowMount(PostHeader, {
             localVue,
