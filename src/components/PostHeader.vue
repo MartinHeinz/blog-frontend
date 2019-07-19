@@ -35,11 +35,13 @@ import { API_URL } from '@/common/config';
 export default {
     name: 'PostHeader',
     components: { BaseTag },
-    props: {
-        tags: Array,
-        title: String,
-        author: String,
-        published: String,
+    data() {
+        return {
+            tags: null,
+            title: '',
+            author: '',
+            published: '',
+        };
     },
     watch: {
         $route: 'updateHeaderData',

@@ -50,7 +50,7 @@ describe('Navigation.vue', () => {
             propsData,
         });
         return wrapper.vm.updateNavigation().then(() => {
-            expect(wrapper.props().actions).toEqual({
+            expect(wrapper.vm.$data.actions).toEqual({
                 url_previous: '/blog/1',
                 url_next: '/blog/3',
             });

@@ -49,7 +49,6 @@ export default {
     },
     props: {
         items: Array,
-        actions: Object,
     },
     watch: {
         $route: 'updateNavigation',
@@ -68,6 +67,10 @@ export default {
     },
     data() {
         return {
+            actions: {
+                url_previous: '',
+                url_next: '',
+            },
             active: false,
             path: window.location.href,
             tree: { // TODO axios

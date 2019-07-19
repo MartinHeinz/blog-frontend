@@ -50,7 +50,7 @@ describe('Post.vue', () => {
             propsData,
         });
         return wrapper.vm.updateContent().then(() => {
-            expect(wrapper.props().text).toEqual(post.text);
+            expect(wrapper.vm.$data.text).toEqual(post.text);
         });
     });
 });

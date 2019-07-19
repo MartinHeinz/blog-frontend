@@ -42,10 +42,10 @@ describe('PostHeader.vue', () => {
             },
         });
         return wrapper.vm.updateHeaderData().then(() => {
-            expect(wrapper.props().title).toEqual(post.title);
-            expect(wrapper.props().author).toEqual(post.author);
-            expect(wrapper.props().published).toEqual(post.posted_on);
-            expect(wrapper.props().tags).toEqual(post.tags);
+            expect(wrapper.vm.$data.title).toEqual(post.title);
+            expect(wrapper.vm.$data.author).toEqual(post.author);
+            expect(wrapper.vm.$data.published).toEqual(post.posted_on);
+            expect(wrapper.vm.$data.tags).toEqual(post.tags);
         });
     });
 });

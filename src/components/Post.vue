@@ -13,8 +13,10 @@ import { API_URL } from '@/common/config';
 
 export default {
     name: 'Post',
-    props: {
-        text: String,
+    data() {
+        return {
+            text: '',
+        };
     },
     watch: {
         $route: 'updateContent',
