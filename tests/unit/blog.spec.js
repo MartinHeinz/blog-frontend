@@ -3,6 +3,7 @@ import Blog from '@/components/Blog.vue';
 import { API_URL } from '@/common/config';
 
 import * as axios from 'axios';
+import Vuetify from 'vuetify';
 
 const MockAdapter = require('axios-mock-adapter');
 
@@ -43,7 +44,10 @@ describe('Blog .vue', () => {
         const fetchHeaderAndNavigationData = jest.fn();
         mock.onGet(`${API_URL}posts/1`).reply(200, post);
 
+        const localVue = createLocalVue();
+        localVue.use(Vuetify);
         shallowMount(Blog, {
+            localVue,
             methods: {
                 fetchHeaderAndNavigationData,
             },
@@ -57,7 +61,7 @@ describe('Blog .vue', () => {
     it('Sets Header and Navigation fields', () => {
         mock.onGet(`${API_URL}posts/1`).reply(200, post);
         const localVue = createLocalVue();
-
+        localVue.use(Vuetify);
         const wrapper = shallowMount(Blog, {
             localVue,
             mocks: {

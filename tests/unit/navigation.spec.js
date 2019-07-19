@@ -3,6 +3,7 @@ import Navigation from '@/components/Navigation.vue';
 import { API_URL } from '@/common/config';
 
 import * as axios from 'axios';
+import Vuetify from 'vuetify';
 
 const MockAdapter = require('axios-mock-adapter');
 
@@ -41,6 +42,7 @@ describe('Navigation.vue', () => {
     it('Sets previous and next post ids', () => {
         mock.onGet(`${API_URL}posts/2`).reply(200, post);
         const localVue = createLocalVue();
+        localVue.use(Vuetify);
 
         const wrapper = shallowMount(Navigation, {
             localVue,
