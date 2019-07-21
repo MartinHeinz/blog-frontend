@@ -2,9 +2,9 @@
     <div class="content">
         <div class="row">
             <About></About>
-            <PostList :items="this.posts"></PostList>
+            <PostList></PostList>
         </div>
-        <BookList :items="this.books">
+        <BookList>
         </BookList>
         <BaseFooter :items="[
                 {value: 'Home', url: '/'},
@@ -15,12 +15,10 @@
 </template>
 
 <script>
-import axios from 'axios';
 import BaseFooter from '@/components/BaseFooter.vue';
 import About from '@/components/About.vue';
 import BookList from '@/components/BookList.vue';
 import PostList from '@/components/PostList.vue';
-import { API_URL } from '@/common/config';
 
 export default {
     name: 'Home',
@@ -29,32 +27,6 @@ export default {
         PostList,
         BaseFooter,
         BookList,
-    },
-    mounted() {
-        this.populateFields();
-    },
-    data() {
-        return {
-            books: [],
-            posts: [],
-        };
-    },
-    methods: {
-        getBooks() {
-            return axios.get(`${API_URL}books/`);
-        },
-
-        getPosts() {
-            return axios.get(`${API_URL}posts/`);
-        },
-        populateFields() {
-            const self = this;
-            return axios.all([this.getBooks(), this.getPosts()])
-                .then(axios.spread((books, posts) => {
-                    self.books = books.data.books;
-                    self.posts = posts.data.posts;
-                }));
-        },
     },
 };
 </script>

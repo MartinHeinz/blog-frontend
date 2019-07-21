@@ -39,8 +39,7 @@ import BaseMenu from '@/components/BaseMenu.vue';
 import MenuActions from '@/components/MenuActions.vue';
 import SocialSharingList from '@/components/SocialSharingList.vue';
 import TableOfContents from '@/components/TableOfContents.vue';
-import axios from 'axios';
-import { API_URL } from '@/common/config';
+import { mapGetters, mapActions } from 'vuex';
 
 export default {
     name: 'Navigation',
@@ -50,29 +49,30 @@ export default {
     props: {
         items: Array,
     },
-    watch: {
-        $route: 'updateNavigation',
+    mounted() {
+        this.fetchPostById({ id: this.$route.params.id });
     },
     methods: {
-        updateNavigation() {
-            return axios
-                .get(`${API_URL}posts/${this.$route.params.id}`)
-                .then((response) => {
-                    this.actions = { // TODO catch the cases when next/previous points to null blog (with ID 0)
-                        url_previous: `/blog/${response.data.previous_post_id}`,
-                        url_next: `/blog/${response.data.next_post_id}`,
-                    };
-                });
+        ...mapActions([
+            'fetchPostById',
+        ]),
+    },
+    computed: {
+        ...mapGetters([
+            'previousPostId',
+            'nextPostId',
+        ]),
+        actions() {
+            return {
+                url_previous: `/blog/${this.previousPostId}`,
+                url_next: `/blog/${this.nextPostId}`,
+            };
         },
     },
+
     data() {
         return {
-            actions: {
-                url_previous: '',
-                url_next: '',
-            },
             active: false,
-            path: window.location.href,
             tree: { // TODO axios
                 nodes: [
                     {

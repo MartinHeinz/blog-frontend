@@ -10,6 +10,7 @@ export default {
         name: String,
     },
 };
+// TODO Use Vuex for tags (do get them from parent, but use Vuex right here).
 </script>
 
 <style>

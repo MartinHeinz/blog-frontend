@@ -18,7 +18,8 @@
     "vue": "^2.6.10",
     "vue-router": "latest",
     "vue-social-sharing": "^2.4.3",
-    "vuetify": "^1.5.14"
+    "vuetify": "^1.5.14",
+    "vuex": "^3.1.1"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.7.0",

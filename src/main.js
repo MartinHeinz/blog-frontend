@@ -5,6 +5,7 @@ import camelCase from 'lodash/camelCase';
 import moment from 'moment';
 import Vuetify from 'vuetify';
 import router from '@/router';
+import store from '@/store';
 
 import App from '@/App.vue';
 
@@ -58,5 +59,6 @@ Vue.filter('formatDate', value => moment(String(value)).format('ll'));
 
 new Vue({
     router,
+    store,
     render: h => h(App),
 }).$mount('#app');
