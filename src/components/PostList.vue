@@ -3,7 +3,7 @@
         <h1>Blog Posts</h1>
         <span>
             <ul class="post-list">
-                <PostListItem v-for="item in items"
+                <PostListItem v-for="item in postList"
                               v-bind:url="'/blog/'+ item.id"
                               v-bind:value="item.title"
                               v-bind:published="item.posted_on"
@@ -16,12 +16,26 @@
 
 <script>
 import PostListItem from '@/components/PostListItem.vue';
+import { mapGetters, mapActions } from 'vuex';
 
 export default {
     name: 'PostList',
     components: { PostListItem },
     props: {
         items: Array,
+    },
+    created() {
+        this.fetchPosts();
+    },
+    computed: {
+        ...mapGetters([
+            'postList',
+        ]),
+    },
+    methods: {
+        ...mapActions([
+            'fetchPosts',
+        ]),
     },
 };
 </script>

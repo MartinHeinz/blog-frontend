@@ -1,22 +1,22 @@
 <template>
     <header>
 
-        <h1 class="posttitle" itemprop="name headline">{{title}}</h1>
+        <h1 class="posttitle" itemprop="name headline">{{ currentPostHeader.title }}</h1>
 
 
         <div class="meta">
 
             <span class="author" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-                <span itemprop="name">{{author}}</span>
+                <span itemprop="name">{{currentPostHeader.author}}</span>
             </span>
 
             <div class="postdate">
-                <time :datetime="published" itemprop="datePublished">{{ published | formatDate }}</time>
+                <time :datetime="currentPostHeader.published" itemprop="datePublished">{{ currentPostHeader.published | formatDate }}</time>
             </div>
 
             <div class="article-tag">
                 <v-icon>fas fa-tag</v-icon>
-                <BaseTag v-for="tag in tags"
+                <BaseTag v-for="tag in currentPostHeader.tags"
                               v-bind:url="tag.url"
                               v-bind:name="tag.name"
                               v-bind:key="tag.key">
@@ -29,34 +29,29 @@
 
 <script>
 import BaseTag from '@/components/BaseTag.vue';
-import axios from 'axios';
-import { API_URL } from '@/common/config';
+import { mapGetters, mapActions } from 'vuex';
 
 export default {
     name: 'PostHeader',
     components: { BaseTag },
-    data() {
-        return {
-            tags: null,
-            title: '',
-            author: '',
-            published: '',
-        };
-    },
+
     watch: {
-        $route: 'updateHeaderData',
+        '$route.params.id': function () {
+            this.fetchPostById({ id: this.$route.params.id });
+        },
+    },
+    mounted() {
+        this.fetchPostById({ id: this.$route.params.id });
+    },
+    computed: {
+        ...mapGetters([
+            'currentPostHeader',
+        ]),
     },
     methods: {
-        updateHeaderData() {
-            return axios
-                .get(`${API_URL}posts/${this.$route.params.id}`)
-                .then((response) => {
-                    this.title = response.data.title;
-                    this.author = response.data.author;
-                    this.published = response.data.posted_on;
-                    this.tags = response.data.tags;
-                });
-        },
+        ...mapActions([
+            'fetchPostById',
+        ]),
     },
 };
 </script>

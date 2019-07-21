@@ -2,33 +2,33 @@
     <article class="post" itemscope="" itemtype="http://schema.org/BlogPosting">
 
         <div class="content" itemprop="articleBody">
-            <p>{{ text }}</p>
+            <p>{{ currentPostText }}</p>
         </div>
     </article>
 </template>
 
 <script>
-import axios from 'axios';
-import { API_URL } from '@/common/config';
+import { mapGetters, mapActions } from 'vuex';
 
 export default {
     name: 'Post',
-    data() {
-        return {
-            text: '',
-        };
-    },
     watch: {
-        $route: 'updateContent',
+        '$route.params.id': function () {
+            this.fetchPostById({ id: this.$route.params.id });
+        },
+    },
+    mounted() {
+        this.fetchPostById({ id: this.$route.params.id });
+    },
+    computed: {
+        ...mapGetters([
+            'currentPostText',
+        ]),
     },
     methods: {
-        updateContent() {
-            return axios
-                .get(`${API_URL}posts/${this.$route.params.id}`)
-                .then((response) => {
-                    this.text = response.data.text;
-                });
-        },
+        ...mapActions([
+            'fetchPostById',
+        ]),
     },
 };
 </script>
