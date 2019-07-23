@@ -89,4 +89,11 @@ const store = new Vuex.Store({
     mutations,
 });
 
+export const s = {
+    state,
+    getters,
+    actions,
+    mutations,
+};
+
 export default store;

@@ -1,6 +1,8 @@
 import { createLocalVue, mount, RouterLinkStub } from '@vue/test-utils';
 import PostList from '@/components/PostList.vue';
 import moment from 'moment';
+import Vue from 'vue';
+import Vuex from 'vuex';
 
 const items = [
     {
@@ -38,15 +40,32 @@ const items = [
 ];
 
 describe('PostList.vue', () => {
+    Vue.use(Vuex);
+    let getters;
+    let actions;
+    let store;
+
+    beforeEach(() => {
+        getters = {
+            postList: () => items,
+        };
+        actions = {
+            fetchPosts: jest.fn(),
+        };
+
+        store = new Vuex.Store({
+            getters,
+            actions,
+        });
+    });
+
     it('renders correcly', () => {
         const localVue = createLocalVue();
         localVue.filter('formatDate', value => moment(String(value)).format('ll')); // TODO import this from @/main.js
         localVue.component('router-link', RouterLinkStub);
         const wrapper = mount(PostList, {
             localVue,
-            propsData: {
-                items,
-            },
+            store,
         });
         expect(wrapper.html()).toMatchSnapshot();
     });
