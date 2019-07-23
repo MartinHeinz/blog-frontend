@@ -1,6 +1,9 @@
 import { createLocalVue, mount } from '@vue/test-utils';
 import BookList from '@/components/BookList.vue';
 
+import Vuex from 'vuex';
+import Vue from 'vue';
+
 const items = [
     {
         id: 1,
@@ -25,13 +28,30 @@ const items = [
 ];
 
 describe('BookList.vue', () => {
+    Vue.use(Vuex);
+    let getters;
+    let actions;
+    let store;
+
+    beforeEach(() => {
+        getters = {
+            bookList: () => items,
+        };
+        actions = {
+            fetchBooks: jest.fn(),
+        };
+
+        store = new Vuex.Store({
+            getters,
+            actions,
+        });
+    });
+
     it('renders correcly', () => {
         const localVue = createLocalVue();
         const wrapper = mount(BookList, {
             localVue,
-            propsData: {
-                items,
-            },
+            store,
         });
         expect(wrapper.html()).toMatchSnapshot();
     });

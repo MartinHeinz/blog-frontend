@@ -4,6 +4,8 @@ import { API_URL } from '@/common/config';
 
 import * as axios from 'axios';
 import Vuetify from 'vuetify';
+import Vue from 'vue';
+import Vuex from 'vuex';
 
 const MockAdapter = require('axios-mock-adapter');
 
@@ -26,19 +28,32 @@ const post = {
     tags: null,
 };
 
-const propsData = {
-    actions: {
-        url_previous: '',
-        url_next: '',
-    },
-};
-
 const $route = {
     hash: '',
     params: { id: '2' },
 };
 
 describe('Navigation.vue', () => {
+    Vue.use(Vuex);
+    let getters;
+    let actions;
+    let store;
+
+    beforeEach(() => {
+        getters = {
+            previousPostId: () => 1,
+            nextPostId: () => 3,
+        };
+        actions = {
+            fetchPostById: jest.fn(),
+        };
+
+        store = new Vuex.Store({
+            getters,
+            actions,
+        });
+    });
+
     it('Sets previous and next post ids', () => {
         mock.onGet(`${API_URL}posts/2`).reply(200, post);
         const localVue = createLocalVue();
@@ -46,16 +61,14 @@ describe('Navigation.vue', () => {
 
         const wrapper = shallowMount(Navigation, {
             localVue,
+            store,
             mocks: {
                 $route,
             },
-            propsData,
         });
-        return wrapper.vm.updateNavigation().then(() => {
-            expect(wrapper.vm.$data.actions).toEqual({
-                url_previous: '/blog/1',
-                url_next: '/blog/3',
-            });
+        expect(wrapper.vm.actions).toEqual({
+            url_previous: '/blog/1',
+            url_next: '/blog/3',
         });
     });
 });

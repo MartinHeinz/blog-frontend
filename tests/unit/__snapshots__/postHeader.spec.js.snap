@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PostHeader.vue Sets header attributes of blog post header 1`] = `
+<header>
+  <h1 itemprop="name headline" class="posttitle">Second Blog Post</h1>
+  <div class="meta"><span itemprop="author" itemscope="itemscope" itemtype="http://schema.org/Person" class="author"><span itemprop="name">Martin</span></span>
+    <div class="postdate"><time datetime="0001-01-01T00:00:00Z" itemprop="datePublished">Jan 1, 0001</time></div>
+    <div class="article-tag">
+      <v-icon-stub>fas fa-tag</v-icon-stub>
+      <basetag-stub name="Python"></basetag-stub>
+      <basetag-stub name="Crypto"></basetag-stub>
+    </div>
+  </div>
+</header>
+`;

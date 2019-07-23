@@ -1,30 +1,32 @@
 import { createLocalVue, shallowMount } from '@vue/test-utils';
 import PostHeader from '@/components/PostHeader.vue';
-import { API_URL } from '@/common/config';
 
-import * as axios from 'axios';
 import moment from 'moment';
 import Vuetify from 'vuetify';
+import Vue from 'vue';
+import Vuex from 'vuex';
 
-const MockAdapter = require('axios-mock-adapter');
-
-const mock = new MockAdapter(axios);
-
-const post = {
-    id: 2,
-    created_at: '0001-01-01T00:00:00Z',
-    updated_at: '0001-01-01T00:00:00Z',
-    deleted_at: null,
+const header = {
     title: 'Second Blog Post',
-    text: 'This is blog about something else...',
     author: 'Martin',
-    next: null,
-    next_post_id: 3,
-    previous: null,
-    previous_post_id: 1,
-    posted_on: '0001-01-01T00:00:00Z',
-    sections: null,
-    tags: null,
+    published: '0001-01-01T00:00:00Z',
+    tags: [
+        {
+            id: 1,
+            created_at: '0001-01-01T00:00:00Z',
+            updated_at: '0001-01-01T00:00:00Z',
+            deleted_at: null,
+            post_id: 1,
+            name: 'Python',
+        },
+        {
+            id: 3,
+            created_at: '0001-01-01T00:00:00Z',
+            updated_at: '0001-01-01T00:00:00Z',
+            deleted_at: null,
+            post_id: 1,
+            name: 'Crypto',
+        }],
 };
 
 const $route = {
@@ -33,23 +35,38 @@ const $route = {
 };
 
 describe('PostHeader.vue', () => {
+    Vue.use(Vuex);
+    let getters;
+    let actions;
+    let store;
+
+    beforeEach(() => {
+        getters = {
+            currentPostHeader: () => header,
+        };
+        actions = {
+            fetchPostById: jest.fn(),
+        };
+
+        store = new Vuex.Store({
+            getters,
+            actions,
+        });
+    });
+
     it('Sets header attributes of blog post header', () => {
-        mock.onGet(`${API_URL}posts/2`).reply(200, post);
         const localVue = createLocalVue();
         localVue.use(Vuetify);
         localVue.filter('formatDate', value => moment(String(value)).format('ll')); // TODO import this from @/main.js
 
         const wrapper = shallowMount(PostHeader, {
             localVue,
+            store,
             mocks: {
                 $route,
             },
         });
-        return wrapper.vm.updateHeaderData().then(() => {
-            expect(wrapper.vm.$data.title).toEqual(post.title);
-            expect(wrapper.vm.$data.author).toEqual(post.author);
-            expect(wrapper.vm.$data.published).toEqual(post.posted_on);
-            expect(wrapper.vm.$data.tags).toEqual(post.tags);
-        });
+
+        expect(wrapper.html()).toMatchSnapshot();
     });
 });
