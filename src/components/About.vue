@@ -1,7 +1,7 @@
 <template>
-    <div class="column">
+    <div>
         <h1>About Me</h1>
-        <p>My name is Martin Heinz and I'm a software developer/DevOps engineer, currently working at IBM.
+        <p>My name is Martin Heinz and I'm a software developer/DevOps engineer. I'm from Slovakia, living in Bratislava and currently working at IBM.
             You can find me on
             <a class="no-underline" href="https://github.com/MartinHeinz" target="_blank">
             <v-hover>
@@ -17,8 +17,47 @@
                         slot-scope="{ hover }"
                         :class="`${hover? 'icon-active': 'icon-inactive'}`">fab fa-linkedin</v-icon>
             </v-hover>
-            </a>
+            </a>.
             </p>
+
+        <p>
+            On this page you can find some information about me and a few blog posts I wrote. Most of them are about topics that I'm most interested in,
+            such as cryptography, serverless and distributed technologies, or about programming languages like Python or Go. I like to read a lot books,
+            so you might also find my opinions or review of some them here.
+        </p>
+
+        <div class="row">
+            <div class="column">
+                <h2><v-icon>fas fa-heartbeat</v-icon> Life so far...</h2>
+                <ul class="about-list">
+                    <li>Breathing since 1994</li>
+                    <li>Started studying CS in 2014</li>
+                    <li>Got Bachelors in 2017</li>
+                    <li>Started working at IBM in 2018</li>
+                    <li>Got Masters with honours in 2019</li>
+                </ul>
+            </div>
+            <div class="column">
+                <h2><v-icon>fas fa-fire</v-icon> Passionate about...</h2>
+                <ul class="about-list">
+                    <li>Food</li>
+                    <li>Books</li>
+                    <li>Weight Lifting</li>
+                    <li>Coding</li>
+                    <li>Music</li>
+                </ul>
+            </div>
+            <div class="column">
+<!--                <h2><v-icon>fas fa-paint-brush</v-icon> Thinking about...</h2>-->
+<!--                <h2><v-icon>fas fa-comments</v-icon> Thinking about...</h2>-->
+                <h2><v-icon>fas fa-lightbulb</v-icon> Thinking about...</h2>
+                <ul class="about-list">
+                    <li>Cryptography</li>
+                    <li></li>
+                    <li></li>
+                </ul>
+            </div>
+        </div>
     </div>
 </template>
 
@@ -42,4 +81,22 @@ export default {
         background-image: none !important;
     }
 
+    /* Create two equal columns that floats next to each other */
+    .column {
+        float: left;
+        width: 33%;
+        padding: 10px;
+        height: 50%;
+    }
+
+    /* Clear floats after the columns */
+    .row:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+
+    .about-list {
+        padding-left: 12px;
+    }
 </style>

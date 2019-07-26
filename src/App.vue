@@ -13,7 +13,7 @@ export default {
 
 <style>
     body {
-        max-width: 64rem;
+        max-width: 72rem;
         margin: 0;
         height: 100%;
         background-color: #1d1f21;

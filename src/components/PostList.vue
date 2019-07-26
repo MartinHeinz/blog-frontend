@@ -1,5 +1,5 @@
 <template>
-    <div class="column">
+    <div>
         <h1>Blog Posts</h1>
         <span>
             <ul class="post-list">

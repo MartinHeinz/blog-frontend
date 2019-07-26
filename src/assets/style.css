@@ -455,7 +455,6 @@ body {
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
 
-    max-width: 64rem;
     padding-right: 2rem;
     padding-left: 2rem;
     margin: 0 auto;

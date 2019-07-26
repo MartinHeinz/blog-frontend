@@ -1,11 +1,12 @@
 <template>
     <div class="content">
-        <div class="row">
-            <About></About>
-            <PostList></PostList>
-        </div>
-        <BookList>
-        </BookList>
+        <h1 class="title">Martin Heinz</h1>
+        <h1 class="subtitle">Personal Website & Blog</h1>
+        <About></About>
+        <PostList></PostList>
+        <Projects></Projects>
+        <BookList></BookList>
+        <Contact></Contact>
         <BaseFooter :items="[
                 {value: 'Home', url: '/'},
                 {value: 'Contact', url: '/contact'},
@@ -19,6 +20,8 @@ import BaseFooter from '@/components/BaseFooter.vue';
 import About from '@/components/About.vue';
 import BookList from '@/components/BookList.vue';
 import PostList from '@/components/PostList.vue';
+import Contact from '@/components/Contact.vue';
+import Projects from '@/components/Projects.vue';
 
 export default {
     name: 'Home',
@@ -27,29 +30,27 @@ export default {
         PostList,
         BaseFooter,
         BookList,
+        Contact,
+        Projects,
     },
 };
 </script>
 
 <style scoped>
+    .title {
+        font-size: 2em;
+    }
+    .subtitle {
+        font-size: 1.2em;
+        color: #666;
+        margin-top: -4px;
+        margin-bottom: -4px;
+    }
+
     * {
         box-sizing: border-box;
     }
 
-    /* Create two equal columns that floats next to each other */
-    .column {
-        float: left;
-        width: 50%;
-        padding: 10px;
-        height: 50%;
-    }
-
-    /* Clear floats after the columns */
-    .row:after {
-        content: "";
-        display: table;
-        clear: both;
-    }
     @media screen and (max-width: 600px) {
         .column {
             text-align: center;

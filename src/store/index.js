@@ -7,12 +7,14 @@ Vue.use(Vuex);
 
 const types = {
     SET_BOOKS: 'SET_BOOKS',
+    SET_PROJECTS: 'SET_PROJECTS',
     SET_POSTS: 'SET_POSTS',
     SET_CURRENT_POST: 'SET_CURRENT_POST',
 };
 
 const state = {
     books: Object,
+    projects: Object,
     posts: Object,
     currentPost: Object,
 };
@@ -20,6 +22,9 @@ const state = {
 const getters = {
     bookList(state) {
         return state.books;
+    },
+    projects(state) {
+        return state.projects;
     },
     postList(state) {
         return state.posts;
@@ -54,6 +59,37 @@ const actions = {
                 commit(types.SET_BOOKS, books);
             });
     },
+    fetchProjects({ commit }) {
+        return new Promise((resolve, reject) => {
+            resolve();
+        }).then(() => {
+            commit(types.SET_PROJECTS, [
+                {
+                    name: 'IoT Cloud',
+                    url: 'https://github.com/MartinHeinz/IoT-Cloud',
+                    description: 'This is my diploma paper.',
+                    thumbnail: 'https://via.placeholder.com/150',
+                    tags: [
+                        { name: 'Crypto' },
+                        { name: 'Python' },
+                        { name: 'IoT' },
+                        { name: 'Privacy' },
+                    ],
+                },
+                {
+                    name: 'Blog & Personal website',
+                    url: 'https://github.com/MartinHeinz/blog-frontend',
+                    description: 'This website. Built using Golang on backend and Vue.js on frontend.',
+                    thumbnail: 'https://via.placeholder.com/150',
+                    tags: [
+                        { name: 'Golang' },
+                        { name: 'Vue.js' },
+                        { name: 'Docker' },
+                    ],
+                },
+            ]);
+        });
+    },
     fetchPosts({ commit }) {
         return axios.get(`${API_URL}posts/`)
             .then(r => r.data.posts)
@@ -73,6 +109,9 @@ const actions = {
 const mutations = {
     [types.SET_BOOKS](state, books) {
         state.books = books;
+    },
+    [types.SET_PROJECTS](state, projects) {
+        state.projects = projects;
     },
     [types.SET_POSTS](state, posts) {
         state.posts = posts;
