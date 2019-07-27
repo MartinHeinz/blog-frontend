@@ -50,11 +50,12 @@
             <div class="column">
 <!--                <h2><v-icon>fas fa-paint-brush</v-icon> Thinking about...</h2>-->
 <!--                <h2><v-icon>fas fa-comments</v-icon> Thinking about...</h2>-->
+<!--                TODO Change to Working with...?-->
                 <h2><v-icon>fas fa-lightbulb</v-icon> Thinking about...</h2>
                 <ul class="about-list">
+                    <li>Cloud-Native Apps</li>
                     <li>Cryptography</li>
-                    <li></li>
-                    <li></li>
+                    <li>Testing</li>
                 </ul>
             </div>
         </div>

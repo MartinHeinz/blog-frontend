@@ -2,7 +2,7 @@
     <div>
         <h1>Blog Posts</h1>
         <span>
-            <ul class="post-list">
+            <ul v-if="postEmpty" class="post-list">
                 <PostListItem v-for="item in postList"
                               v-bind:url="'/blog/'+ item.id"
                               v-bind:value="item.title"
@@ -10,6 +10,7 @@
                               v-bind:key="item.id">
                 </PostListItem>
             </ul>
+            <p v-else>Coming soon...</p>
         </span>
     </div>
 </template>
@@ -31,6 +32,9 @@ export default {
         ...mapGetters([
             'postList',
         ]),
+        postEmpty() {
+            return this.postList.length > 0;
+        },
     },
     methods: {
         ...mapActions([
