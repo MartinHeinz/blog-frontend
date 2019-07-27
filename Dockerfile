@@ -6,9 +6,9 @@ RUN npm run build
 
 FROM nginx:stable-alpine as runner
 COPY --from=builder dist /home/html
-COPY site.conf /etc/nginx/conf.d/
+COPY site.conf prod.template /etc/nginx/conf.d/
 COPY .htpasswd /etc/nginx/.htpasswd
-EXPOSE 8080
+EXPOSE 80
 COPY startup.sh /home/
 RUN chmod 777 /home/startup.sh
 CMD ["sh", "/home/startup.sh"]

@@ -1,0 +1,55 @@
+server {
+
+    listen 80;
+    server_name ${NGINX_HOST};
+
+    location /.well-known/acme-challenge/ {
+        root /var/www/certbot;
+    }
+
+    location / {
+        return 301 https://$host$request_uri;
+    }
+}
+
+server {
+    listen 443 ssl;
+    server_name ${NGINX_HOST};
+    server_tokens off;
+
+    ssl_certificate /etc/letsencrypt/live/${NGINX_HOST}/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/${NGINX_HOST}/privkey.pem;
+    include /etc/letsencrypt/options-ssl-nginx.conf;
+    ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem;
+
+    location / {
+        proxy_pass  http://${NGINX_HOST};
+        proxy_set_header    Host                $http_host;
+        proxy_set_header    X-Real-IP           $remote_addr;
+        proxy_set_header    X-Forwarded-For     $proxy_add_x_forwarded_for;
+    }
+
+    # In order to avoid favicon errors on some navigators like IE
+    # which would pollute Nginx logs (do use the "=")
+    location = /favicon.ico {
+        access_log off;
+        log_not_found off;
+    }
+
+    # Static folder that Nginx must serve
+    location / {
+        try_files $uri $uri/ /index.html;
+        root /home/html;
+        auth_basic off;
+    }
+
+    location /api {
+        auth_basic "Administrator’s Area";
+        auth_basic_user_file /etc/nginx/.htpasswd;
+    }
+
+    # robots.txt file generated on the fly
+    location /robots.txt {
+        return 200 "User-agent: *\nDisallow: /";
+    }
+}
