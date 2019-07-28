@@ -36,7 +36,7 @@ export default {
     components: { BaseTag },
 
     watch: {
-        '$route.params.id': function () {
+        '$route.params.id': () => {
             this.fetchPostById({ id: this.$route.params.id });
         },
     },

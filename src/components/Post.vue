@@ -13,7 +13,7 @@ import { mapGetters, mapActions } from 'vuex';
 export default {
     name: 'Post',
     watch: {
-        '$route.params.id': function () {
+        '$route.params.id': () => {
             this.fetchPostById({ id: this.$route.params.id });
         },
     },

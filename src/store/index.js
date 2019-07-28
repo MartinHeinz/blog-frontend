@@ -3,6 +3,9 @@ import Vuex from 'vuex';
 import axios from 'axios';
 import { API_URL } from '@/common/config';
 
+/* eslint no-shadow: ["error", { "allow": ["state"] }] */
+/* eslint no-param-reassign: ["error", { "props": true, "ignorePropertyModificationsFor": ["state"] }] */
+
 Vue.use(Vuex);
 
 const types = {
