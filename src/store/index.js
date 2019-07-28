@@ -60,35 +60,11 @@ const actions = {
             });
     },
     fetchProjects({ commit }) {
-        return new Promise((resolve, reject) => {
-            resolve();
-        }).then(() => {
-            commit(types.SET_PROJECTS, [
-                {
-                    name: 'IoT Cloud',
-                    url: 'https://github.com/MartinHeinz/IoT-Cloud',
-                    description: 'This is my diploma paper.',
-                    thumbnail: 'https://via.placeholder.com/150',
-                    tags: [
-                        { name: 'Crypto' },
-                        { name: 'Python' },
-                        { name: 'IoT' },
-                        { name: 'Privacy' },
-                    ],
-                },
-                {
-                    name: 'Blog & Personal website',
-                    url: 'https://github.com/MartinHeinz/blog-frontend',
-                    description: 'This website. Built using Golang on backend and Vue.js on frontend.',
-                    thumbnail: 'https://via.placeholder.com/150',
-                    tags: [
-                        { name: 'Golang' },
-                        { name: 'Vue.js' },
-                        { name: 'Docker' },
-                    ],
-                },
-            ]);
-        });
+        return axios.get(`${API_URL}projects/`)
+            .then(r => r.data.projects)
+            .then((projects) => {
+                commit(types.SET_PROJECTS, projects);
+            });
     },
     fetchPosts({ commit }) {
         return axios.get(`${API_URL}posts/`)

@@ -2,7 +2,7 @@
     <article class="project-item">
         <figure class="left">
             <a class="no-underline" :href="url">
-            <img :src="thumbnail" :alt="name"  height="150" width="250">
+            <img :src="src" :alt="name"  height="150" width="250">
             </a>
         </figure>
         <section class="right">
@@ -32,7 +32,7 @@ export default {
         name: String,
         url: String,
         description: String,
-        thumbnail: String,
+        src: String,
         tags: Array,
     },
 };

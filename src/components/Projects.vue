@@ -15,7 +15,7 @@
                           v-bind:name="item.name"
                           v-bind:url="item.url"
                           v-bind:description="item.description"
-                          v-bind:thumbnail="item.thumbnail"
+                          v-bind:src="item.src"
                           v-bind:tags="item.tags"
                           v-bind:key="item.id">
             </Project>
