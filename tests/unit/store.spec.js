@@ -87,6 +87,62 @@ const books = {
     ],
 };
 
+const projects = {
+    projects: [
+        {
+            id: 1,
+            created_at: '0001-01-01T00:00:00Z',
+            updated_at: '0001-01-01T00:00:00Z',
+            deleted_at: null,
+            name: 'IoT Cloud',
+            src: 'https://via.placeholder.com/150',
+            url: 'https://github.com/MartinHeinz/IoT-Cloud',
+            description: 'Cloud framework for IoT (Internet of Things), which focuses on security and privacy of its users, their devices and data',
+            tags: [
+                {
+                    id: 6,
+                    created_at: '0001-01-01T00:00:00Z',
+                    updated_at: '0001-01-01T00:00:00Z',
+                    deleted_at: null,
+                    post_id: 0,
+                    project_id: 1,
+                    name: 'Python',
+                },
+            ],
+        },
+        {
+            id: 2,
+            created_at: '0001-01-01T00:00:00Z',
+            updated_at: '0001-01-01T00:00:00Z',
+            deleted_at: null,
+            name: 'Blog & Personal Website',
+            src: 'https://via.placeholder.com/150',
+            url: 'https://github.com/MartinHeinz/blog-backend',
+            description: 'This website. Goal of this project was to learn Go and Vue.js and as a byproduct I created personal website and blog.',
+            tags: [
+                {
+                    id: 10,
+                    created_at: '0001-01-01T00:00:00Z',
+                    updated_at: '0001-01-01T00:00:00Z',
+                    deleted_at: null,
+                    post_id: 0,
+                    project_id: 2,
+                    name: 'Vue',
+                },
+                {
+                    id: 11,
+                    created_at: '0001-01-01T00:00:00Z',
+                    updated_at: '0001-01-01T00:00:00Z',
+                    deleted_at: null,
+                    post_id: 0,
+                    project_id: 2,
+                    name: 'Golang',
+                },
+            ],
+        },
+    ],
+};
+
 describe('Vuex Store', () => {
     it('Action "fetchPostById" gets correct post', () => {
         mock.onGet(`${API_URL}posts/2`).reply(200, post);
@@ -125,6 +181,16 @@ describe('Vuex Store', () => {
 
         return store.dispatch('fetchBooks').then(() => {
             expect(store.getters.bookList).toEqual(books.books);
+        });
+    });
+    it('Action "fetchProjects" gets all projects', () => {
+        mock.onGet(`${API_URL}projects/`).reply(200, projects);
+        const localVue = createLocalVue();
+        localVue.use(Vuex);
+        const store = new Vuex.Store(cloneDeep(s));
+
+        return store.dispatch('fetchProjects').then(() => {
+            expect(store.getters.projects).toEqual(projects.projects);
         });
     });
 });

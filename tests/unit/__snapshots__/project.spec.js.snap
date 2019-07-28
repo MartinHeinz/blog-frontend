@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Project.vue renders correcly 1`] = `
+<article class="project-item">
+  <figure class="left"><a href="https://github.com/something" class="no-underline"><img src="https://via.placeholder.com/150" alt="My Project" height="150" width="250"></a></figure>
+  <section class="right">
+    <h2>My Project</h2>
+    <p>This is description of this project...</p>
+    <div class="project-tag">
+      <v-icon>fas fa-tag</v-icon> <a href="/tags/golang/" class="tag-link no-underline">Golang</a><a href="/tags/vue/" class="tag-link no-underline">Vue</a>
+    </div>
+  </section>
+</article>
+`;
