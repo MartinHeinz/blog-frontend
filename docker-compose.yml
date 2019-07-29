@@ -12,8 +12,8 @@ services:
       - 80:80
       - 443:443
     environment:
-      - PROD=1
-      - NGINX_HOST=martinheinz.dev
+      PROD: ${PROD}
+      NGINX_HOST: ${NGINX_HOST}
     volumes:
       - ./data/certbot/conf:/etc/letsencrypt
       - ./data/certbot/www:/var/www/certbot
