@@ -47,6 +47,7 @@ describe('PostList.vue', () => {
 
     beforeEach(() => {
         getters = {
+            recentPostList: () => items,
             postList: () => items,
         };
         actions = {
@@ -64,6 +65,10 @@ describe('PostList.vue', () => {
         localVue.filter('formatDate', value => moment(String(value)).format('ll')); // TODO import this from @/main.js
         localVue.component('router-link', RouterLinkStub);
         const wrapper = mount(PostList, {
+            computed: {
+                postListEmpty: () => false,
+                postListLength: () => 2,
+            },
             localVue,
             store,
         });

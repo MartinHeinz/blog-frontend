@@ -1,9 +1,9 @@
 <template>
-    <div>
+    <div class="content">
         <h1>Blog Posts</h1>
         <span>
             <ul v-if="!postListEmpty" class="post-list">
-                <PostListItem v-for="item in recentPostList"
+                <PostListItem v-for="item in postList"
                               v-bind:url="'/blog/'+ item.id"
                               v-bind:value="item.title"
                               v-bind:published="item.posted_on"
@@ -11,18 +11,24 @@
                 </PostListItem>
             </ul>
             <p v-else>Coming soon...</p>
-            <router-link to="/posts/" v-if="postListLength > 10">Show More Posts...</router-link>
         </span>
+        <BaseFooter :items="[
+                {value: 'Home', url: '/'},
+                {value: 'Contact', url: '/contact'},
+                {value: 'About', url: '/about'}]">
+        </BaseFooter>
     </div>
+
 </template>
 
 <script>
 import PostListItem from '@/components/PostListItem.vue';
+import BaseFooter from '@/components/BaseFooter.vue';
 import { mapGetters, mapActions } from 'vuex';
 
 export default {
-    name: 'PostList',
-    components: { PostListItem },
+    name: 'PostListPage',
+    components: { PostListItem, BaseFooter },
     props: {
         items: Array,
     },
@@ -31,13 +37,10 @@ export default {
     },
     computed: {
         ...mapGetters([
-            'postList', 'recentPostList',
+            'postList',
         ]),
         postListEmpty() {
             return this.postList.length === 0;
-        },
-        postListLength() {
-            return this.postList.length;
         },
     },
     methods: {
@@ -49,13 +52,5 @@ export default {
 </script>
 
 <style scoped>
-    @media (min-width: 480px) {
-        .post-list .post-item {
-            display: flex;
-            margin-bottom: 5px;
-        }
-        .post-list .post-item .meta {
-            text-align: left;
-        }
-    }
+
 </style>

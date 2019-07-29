@@ -18,7 +18,7 @@ const types = {
 const state = {
     books: Object,
     projects: Object,
-    posts: Object,
+    posts: Array,
     currentPost: Object,
 };
 
@@ -31,6 +31,12 @@ const getters = {
     },
     postList(state) {
         return state.posts;
+    },
+    recentPostList(state) {
+        if (Array.isArray(state.posts)) {
+            return state.posts.slice(0, Math.min(state.posts.length, 10));
+        }
+        return [];
     },
     currentPost(state) {
         return state.currentPost;
