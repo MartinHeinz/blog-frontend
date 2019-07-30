@@ -22,11 +22,11 @@ server {
     include /etc/letsencrypt/options-ssl-nginx.conf;
     ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem;
 
+    # Static folder that Nginx must serve
     location / {
-        proxy_pass  http://${NGINX_HOST};
-        proxy_set_header    Host                $http_host;
-        proxy_set_header    X-Real-IP           $remote_addr;
-        proxy_set_header    X-Forwarded-For     $proxy_add_x_forwarded_for;
+        try_files $uri $uri/ /index.html;
+        root /home/html;
+        auth_basic off;
     }
 
     # In order to avoid favicon errors on some navigators like IE
@@ -34,13 +34,6 @@ server {
     location = /favicon.ico {
         access_log off;
         log_not_found off;
-    }
-
-    # Static folder that Nginx must serve
-    location / {
-        try_files $uri $uri/ /index.html;
-        root /home/html;
-        auth_basic off;
     }
 
     location /api {

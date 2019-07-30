@@ -30,6 +30,8 @@ services:
       - blog_db
     ports:
       - 1234:1234
+    volumes:
+      - ./data/certbot/conf/live/${NGINX_HOST}:/etc/certs
 
   blog_db:
     image: martinheinz/blog_db:latest
