@@ -36,5 +36,17 @@ matrix:
     after_script:
       - ./cc-test-reporter after-build -t lcov ./coverage/lcov.info
 
+  - language: node_js
+    node_js:
+      - "node"
+    services:
+      - docker
+    if: branch = master
+    script:
+      - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+      - docker-compose build --no-cache
+      - docker images
+      - docker push ${DOCKER_USERNAME}/blog_frontend:latest
+
 notifications:
   email: false
