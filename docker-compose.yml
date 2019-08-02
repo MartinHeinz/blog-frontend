@@ -14,6 +14,7 @@ services:
     environment:
       PROD: ${PROD}
       NGINX_HOST: ${NGINX_HOST}
+      API_URL: ${API_URL}
     volumes:
       - ./data/certbot/conf:/etc/letsencrypt
       - ./data/certbot/www:/var/www/certbot
@@ -31,7 +32,7 @@ services:
     ports:
       - 1234:1234
     volumes:
-      - ./data/certbot/conf/live/${NGINX_HOST}:/etc/certs
+      - ./data/certbot/conf/live/${API_URL}:/etc/certs
 
   blog_db:
     image: martinheinz/blog_db:latest
