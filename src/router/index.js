@@ -4,6 +4,7 @@ import Home from '@/components/Home.vue';
 import Blog from '@/components/Blog.vue';
 import PostListPage from '@/components/PostListPage.vue';
 import Contact from '@/components/Contact.vue';
+import PostEditor from '@/components/PostEditor.vue';
 import NotFound from '@/components/NotFound.vue';
 
 Vue.use(Router);
@@ -15,6 +16,7 @@ export default new Router({
         { path: '/blog/:id', component: Blog },
         { path: '/posts/', component: PostListPage },
         { path: '/contact', component: Contact },
+        { path: '/editor', component: PostEditor },
         { path: '/404', component: NotFound },
         { path: '*', redirect: '/404' },
     ],

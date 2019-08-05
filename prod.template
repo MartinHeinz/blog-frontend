@@ -36,7 +36,7 @@ server {
         log_not_found off;
     }
 
-    location /api {
+    location ~ ^/(api|editor) {
         auth_basic "Administrator’s Area";
         auth_basic_user_file /etc/nginx/.htpasswd;
     }
