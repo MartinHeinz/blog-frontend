@@ -75,30 +75,6 @@ export default {
             active: false,
             tree: { // TODO axios
                 nodes: [
-                    {
-                        label: 'item1',
-                        href: '/item1',
-                        nodes: [
-                            {
-                                label: 'item1.1',
-                                href: '/item1.1',
-                            },
-                            {
-                                label: 'item1.2',
-                                href: '/item1.2',
-                                nodes: [
-                                    {
-                                        label: 'item1.2.1',
-                                        href: '/item1.2.1',
-                                    },
-                                ],
-                            },
-                        ],
-                    },
-                    {
-                        label: 'item2',
-                        href: '/item2',
-                    },
                 ],
             },
         };

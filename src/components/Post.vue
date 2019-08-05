@@ -2,7 +2,7 @@
     <article class="post" itemscope="" itemtype="http://schema.org/BlogPosting">
 
         <div class="content" itemprop="articleBody">
-            <p>{{ currentPostText }}</p>
+            <component :is="currentPostText"></component>
         </div>
     </article>
 </template>

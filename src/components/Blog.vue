@@ -43,7 +43,7 @@ export default {
         flex-direction: column;
         min-height: 100%;
         overflow-wrap: break-word;
-        padding-top: 4rem;
+        padding-top: 2rem;
         padding-bottom: 4rem;
         box-sizing: border-box;
     }

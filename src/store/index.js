@@ -42,7 +42,9 @@ const getters = {
         return state.currentPost;
     },
     currentPostText(state) {
-        return state.currentPost.text;
+        return {
+            template: `<div>${state.currentPost.text}</div>`,
+        };
     },
     currentPostHeader(state) {
         return {
