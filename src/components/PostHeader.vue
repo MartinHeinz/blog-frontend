@@ -1,6 +1,8 @@
 <template>
     <header>
-
+        <vue-headful
+            :title="'Martin Heinz - ' + currentPostHeader.title"
+        />
         <h1 class="posttitle" itemprop="name headline">{{ currentPostHeader.title }}</h1>
 
 

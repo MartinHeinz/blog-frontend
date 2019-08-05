@@ -17,6 +17,7 @@
     "lodash": "^4.17.11",
     "moment": "^2.24.0",
     "vue": "^2.6.10",
+    "vue-headful": "^2.0.1",
     "vue-highlight.js": "^3.1.0",
     "vue-router": "latest",
     "vue-social-sharing": "^2.4.3",

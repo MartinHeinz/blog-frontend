@@ -7,6 +7,7 @@ import moment from 'moment';
 import Vuetify from 'vuetify';
 import router from '@/router';
 import store from '@/store';
+import vueHeadful from 'vue-headful';
 
 // Highlight.js languages (Only required languages)
 import python from 'highlight.js/lib/languages/python';
@@ -57,6 +58,8 @@ requireComponent.keys().forEach((fileName) => {
         componentConfig.default || componentConfig,
     );
 });
+
+Vue.component('vue-headful', vueHeadful);
 
 Vue.use(Vuetify, {
     iconfont: 'fa',
