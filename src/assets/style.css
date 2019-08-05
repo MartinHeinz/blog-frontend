@@ -1065,120 +1065,19 @@ article .content .caption {
 #categories .category-list .category-list-item .category-list-count:after {
     content: ")";
 }
-.highlight {
-    background: #20201d;
-    color: #a6a28c;
-}
-.highlight .code .comment,
-.highlight .code .quote {
-    color: #999580;
-}
-.highlight .code .variable,
-.highlight .code .template-variable,
-.highlight .code .attribute,
-.highlight .code .tag,
-.highlight .code .name,
-.highlight .code .regexp,
-.highlight .code .link,
-.highlight .code .selector-id,
-.highlight .code .selector-class {
-    color: #d73737;
-}
-.highlight .code .number,
-.highlight .code .meta,
-.highlight .code .built_in,
-.highlight .code .builtin-name,
-.highlight .code .literal,
-.highlight .code .type,
-.highlight .code .params {
-    color: #b65611;
-}
-.highlight .code .string,
-.highlight .code .symbol,
-.highlight .code .bullet {
-    color: #60ac39;
-}
-.highlight .code .title,
-.highlight .code .section {
-    color: #6684e1;
-}
-.highlight .code .keyword,
-.highlight .code .selector-tag {
-    color: #b854d4;
-}
-.highlight .code .emphasis {
-    font-style: italic;
-}
-.highlight .code .strong {
-    font-weight: bold;
-}
-pre {
-    overflow-x: auto;
-    padding: 10px 15px;
-    padding-bottom: 0;
+
+pre code {
     border: 1px dotted #666;
-    border-radius: 4px;
+}
+
+.inline {
+    overflow-x: auto;
     font-size: 13px;
     font-family: "Menlo", "Meslo LG", monospace;
     line-height: 22px;
-    -webkit-border-radius: 4px;
-}
-pre code {
-    display: block;
-    padding: 0;
-    border: none;
-}
-code {
     padding: 0 5px;
     background: #212326;
     border: 1px dotted #666;
     border-radius: 2px;
     -webkit-border-radius: 2px;
-}
-.highlight {
-    overflow-x: auto;
-    margin: 1rem 0;
-    padding: 10px 15px;
-    border-radius: 4px;
-    background: #212326;
-    font-family: "Menlo", "Meslo LG", monospace;
-    -webkit-border-radius: 4px;
-}
-.highlight figcaption {
-    margin: -5px 0 5px;
-    color: #666;
-    font-size: 0.9em;
-    zoom: 1;
-}
-.highlight figcaption a {
-    float: right;
-    color: #666;
-    font-style: italic;
-    font-size: 0.8em;
-    background-image: linear-gradient(transparent, transparent 10px, #d480aa 10px, #d480aa);
-    background-position: bottom;
-    background-size: 100% 6px;
-    background-repeat: repeat-x;
-}
-.highlight figcaption a:hover {
-    color: #858585;
-}
-.highlight figcaption:before,
-
-.highlight figcaption:after {
-    clear: both;
-}
-.highlight pre {
-    padding: 0;
-    border: none;
-    background: none;
-}
-.highlight table {
-    width: auto;
-}
-.highlight td.gutter {
-    text-align: right;
-}
-.highlight .line {
-    height: 22px;
 }

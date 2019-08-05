@@ -1,11 +1,22 @@
 import '@fortawesome/fontawesome-free/css/all.css';
 import Vue from 'vue';
+import VueHighlightJS from 'vue-highlight.js';
 import upperFirst from 'lodash/upperFirst';
 import camelCase from 'lodash/camelCase';
 import moment from 'moment';
 import Vuetify from 'vuetify';
 import router from '@/router';
 import store from '@/store';
+
+// Highlight.js languages (Only required languages)
+import python from 'highlight.js/lib/languages/python';
+import javascript from 'highlight.js/lib/languages/javascript';
+
+// import 'highlight.js/styles/an-old-hope.css';
+// import 'highlight.js/styles/darcula.css';
+// import 'highlight.js/styles/nord.css';
+// import 'highlight.js/styles/vs2015.css';
+import 'highlight.js/styles/atom-one-dark-reasonable.css';
 
 import App from '@/App.vue';
 
@@ -50,6 +61,15 @@ requireComponent.keys().forEach((fileName) => {
 Vue.use(Vuetify, {
     iconfont: 'fa',
 });
+
+Vue.use(VueHighlightJS, {
+    // Register only languages that you want
+    languages: {
+        javascript,
+        python,
+    },
+});
+
 
 const SocialSharing = require('vue-social-sharing');
 
