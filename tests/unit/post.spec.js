@@ -18,7 +18,7 @@ describe('Post.vue', () => {
 
     beforeEach(() => {
         getters = {
-            currentPostText: () => text,
+            currentPostText: () => ({ template: `<div>${text}</div>` }),
         };
         actions = {
             fetchPostById: jest.fn(),
@@ -40,6 +40,6 @@ describe('Post.vue', () => {
                 $route,
             },
         });
-        expect(wrapper.html()).toMatchSnapshot();
+        expect(wrapper.html()).toMatchSnapshot(); // TODO Fix <anonymous-stab>
     });
 });

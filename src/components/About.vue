@@ -26,6 +26,11 @@
             so you might also find my opinions or review of some them here.
         </p>
 
+        <p>
+            I'm also posting my blog posts on <a href="https://dev.to/martinheinz">DEV.to</a> and <a href="https://medium.com/@martin7.heinz">Medium</a>,
+            so you can find them there as well.
+        </p>
+
         <div class="row">
             <div class="column">
                 <h2><v-icon>fas fa-heartbeat</v-icon> Life so far...</h2>

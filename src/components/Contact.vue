@@ -8,7 +8,7 @@
                             slot-scope="{ hover }"
                             :class="`${hover? 'icon-active': 'icon-inactive'}`">fab fa-linkedin</v-icon>
                 </v-hover>
-            </a>, as well as on my mail address at <code>martin7.heinz@gmail.com</code>
+            </a>, as well as on my mail address at <code class="inline">martin7.heinz@gmail.com</code>
         </p>
     </div>
 </template>

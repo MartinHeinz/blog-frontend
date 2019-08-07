@@ -2,6 +2,7 @@
 
 exports[`PostHeader.vue Sets header attributes of blog post header 1`] = `
 <header>
+  <vue-headful title="Martin Heinz - Second Blog Post"></vue-headful>
   <h1 itemprop="name headline" class="posttitle">Second Blog Post</h1>
   <div class="meta"><span itemprop="author" itemscope="itemscope" itemtype="http://schema.org/Person" class="author"><span itemprop="name">Martin</span></span>
     <div class="postdate"><time datetime="0001-01-01T00:00:00Z" itemprop="datePublished">Jan 1, 0001</time></div>

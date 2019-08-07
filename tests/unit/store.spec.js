@@ -152,7 +152,7 @@ describe('Vuex Store', () => {
 
         return store.dispatch('fetchPostById', { id: 2 }).then(() => {
             expect(store.getters.currentPost).toEqual(post);
-            expect(store.getters.currentPostText).toEqual(post.text);
+            expect(store.getters.currentPostText).toEqual({ template: '<div>This is blog about something else...</div>' });
             expect(store.getters.currentPostHeader).toEqual({
                 title: post.title,
                 author: post.author,

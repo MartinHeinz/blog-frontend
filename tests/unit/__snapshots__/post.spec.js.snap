@@ -3,7 +3,7 @@
 exports[`Post.vue Sets text of post 1`] = `
 <article itemscope="itemscope" itemtype="http://schema.org/BlogPosting" class="post">
   <div itemprop="articleBody" class="content">
-    <p>This is blog about something else...</p>
+    <anonymous-stub></anonymous-stub>
   </div>
 </article>
 `;
