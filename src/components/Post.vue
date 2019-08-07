@@ -1,9 +1,9 @@
 <template>
-    <article class="post" itemscope="" itemtype="http://schema.org/BlogPosting">
-
-        <div class="content" itemprop="articleBody">
+    <article>
+        <div class="content">
             <component :is="currentPostText"></component>
         </div>
+        <script v-html="currentPostLDJson" type="application/ld+json"></script>
     </article>
 </template>
 
@@ -23,6 +23,7 @@ export default {
     computed: {
         ...mapGetters([
             'currentPostText',
+            'currentPostLDJson',
         ]),
     },
     methods: {

@@ -41,6 +41,40 @@ const getters = {
     currentPost(state) {
         return state.currentPost;
     },
+    currentPostLDJson(state) {
+        return {
+            '@context': 'http://schema.org',
+            '@type': 'BlogPosting',
+            headline: state.currentPost.title,
+            description: state.currentPost.title,
+            keywords: '', // TODO Concatenate tags
+            image: 'https://i.imgur.com/IUf6PIg.png',
+            url: `https://${process.env.VUE_APP_API_URL}/blog/${state.currentPost.id}`,
+            datePublished: state.currentPost.posted_on,
+            dateModified: state.currentPost.posted_on,
+            articleBody: state.currentPost.text,
+            mainEntityOfPage: {
+                '@type': 'WebPage',
+            },
+            author: {
+                '@type': 'Person',
+                name: 'Martin Heinz',
+                url: `https://${process.env.VUE_APP_API_URL}`,
+            },
+            publisher: {
+                '@type': 'Organization',
+                name: 'Martin Heinz',
+                url: `https://${process.env.VUE_APP_API_URL}`,
+                logo: {
+                    '@type': 'ImageObject',
+                    url: 'https://i.imgur.com/IUf6PIg.png',
+                    width: '32',
+                    height: '32',
+                },
+            },
+        };
+    },
+
     currentPostText(state) {
         return {
             template: `<div>${state.currentPost.text}</div>`,
