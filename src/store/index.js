@@ -20,6 +20,8 @@ const state = {
     projects: Object,
     posts: Array,
     currentPost: Object,
+    nextPostExists: false,
+    previousPostExists: false,
 };
 
 const getters = {
@@ -94,6 +96,12 @@ const getters = {
     nextPostId(state) {
         return state.currentPost.next_post_id;
     },
+    previousPostExists(state) {
+        return state.previousPostExists;
+    },
+    nextPostExists(state) {
+        return state.nextPostExists;
+    },
 };
 
 const actions = {
@@ -139,6 +147,8 @@ const mutations = {
     },
     [types.SET_CURRENT_POST](state, post) {
         state.currentPost = post;
+        state.previousPostExists = post.previous !== null;
+        state.nextPostExists = post.next !== null;
     },
 };
 

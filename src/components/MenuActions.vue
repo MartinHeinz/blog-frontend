@@ -1,7 +1,7 @@
 <template>
     <span id="actions">
       <ul>
-        <li>
+        <li v-if="previousPostExists">
             <router-link :to="url_previous">
                 <v-hover>
                 <v-icon :href="url_previous" @mouseover="prev_active = true" @mouseout="prev_active = false"
@@ -10,7 +10,7 @@
                 </v-hover>
             </router-link>
         </li>
-        <li>
+        <li v-if="nextPostExists">
             <router-link :to="url_next">
                 <v-hover>
                 <v-icon :href="url_next" @mouseover="next_active = true" @mouseout="next_active = false"
@@ -44,6 +44,7 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
 
 export default {
     name: 'MenuActions',
@@ -55,6 +56,12 @@ export default {
         toggle_social_sharing() {
             this.$root.$emit('toggle_social_sharing');
         },
+    },
+    computed: {
+        ...mapGetters([
+            'previousPostExists',
+            'nextPostExists',
+        ]),
     },
     data() {
         return {
