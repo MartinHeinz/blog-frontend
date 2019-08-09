@@ -1,5 +1,6 @@
 <template>
     <span id="actions">
+      <a id="top"></a>
       <ul>
         <li v-if="previousPostExists">
             <router-link :to="url_previous">
@@ -21,7 +22,7 @@
         </li>
         <li>
             <v-hover>
-            <v-icon :large=false href="#" @mouseover="top_active = true" @mouseout="top_active = false"
+            <v-icon id="top_icon" :large=false href="#" @mouseover="top_active = true" @mouseout="top_active = false" @click.native="scrollToTop"
                     slot-scope="{ hover }"
                     :class="`${hover? 'icon-active': 'icon-inactive'}`">fas fa-chevron-up</v-icon>
             </v-hover>
@@ -55,6 +56,9 @@ export default {
     methods: {
         toggle_social_sharing() {
             this.$root.$emit('toggle_social_sharing');
+        },
+        scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         },
     },
     computed: {
