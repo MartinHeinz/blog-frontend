@@ -31,7 +31,7 @@
             so you can find them there as well.
         </p>
 
-        <div class="row">
+        <div id="cols" class="row">
             <div class="column">
                 <h2><v-icon>fas fa-heartbeat</v-icon> Life so far...</h2>
                 <ul class="about-list">
@@ -53,9 +53,6 @@
                 </ul>
             </div>
             <div class="column">
-<!--                <h2><v-icon>fas fa-paint-brush</v-icon> Thinking about...</h2>-->
-<!--                <h2><v-icon>fas fa-comments</v-icon> Thinking about...</h2>-->
-<!--                TODO Change to Working with...?-->
                 <h2><v-icon>fas fa-lightbulb</v-icon> Thinking about...</h2>
                 <ul class="about-list">
                     <li>Cloud-Native Apps</li>
@@ -104,5 +101,11 @@ export default {
 
     .about-list {
         padding-left: 12px;
+    }
+
+    @media (min-width: 320px) and (max-width: 480px) {
+        #cols .column {
+            width: 100%;
+        }
     }
 </style>

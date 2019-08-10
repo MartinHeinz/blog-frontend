@@ -51,4 +51,18 @@ export default {
         flex: 1;
     }
 
+    @media (min-width: 320px) and (max-width: 480px) {
+        .project-item {
+            flex-direction: column;
+        }
+        .right {
+            order: 1;
+        }
+        .left {
+            order: 2;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    }
 </style>
