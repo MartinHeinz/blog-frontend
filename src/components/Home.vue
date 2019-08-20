@@ -7,17 +7,11 @@
         <Projects></Projects>
         <BookList></BookList>
         <Contact></Contact>
-        <BaseFooter :items="[
-                {value: 'Home', url: '/'},
-                {value: 'Contact', url: '/contact'},
-                {value: 'About', url: '/about'}]">
-        </BaseFooter>
         <script v-html="jsonld" type="application/ld+json"></script>
     </div>
 </template>
 
 <script>
-import BaseFooter from '@/components/BaseFooter.vue';
 import About from '@/components/About.vue';
 import BookList from '@/components/BookList.vue';
 import PostList from '@/components/PostList.vue';
@@ -29,7 +23,6 @@ export default {
     components: {
         About,
         PostList,
-        BaseFooter,
         BookList,
         Contact,
         Projects,
