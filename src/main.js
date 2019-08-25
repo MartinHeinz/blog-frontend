@@ -1,5 +1,6 @@
 import '@fortawesome/fontawesome-free/css/all.css';
 import Vue from 'vue';
+import VueMeta from 'vue-meta';
 import VueHighlightJS from 'vue-highlight.js';
 import upperFirst from 'lodash/upperFirst';
 import camelCase from 'lodash/camelCase';
@@ -77,6 +78,13 @@ Vue.use(VueHighlightJS, {
 const SocialSharing = require('vue-social-sharing');
 
 Vue.use(SocialSharing);
+
+
+Vue.use(VueMeta, {
+    // optional pluginOptions
+    refreshOnceOnNavigation: true,
+});
+
 
 Vue.filter('formatDate', value => moment(String(value)).format('ll'));
 

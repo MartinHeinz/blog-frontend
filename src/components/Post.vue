@@ -3,7 +3,6 @@
         <div class="content">
             <component :is="currentPostText"></component>
         </div>
-        <script v-html="currentPostLDJson" type="application/ld+json"></script>
     </article>
 </template>
 
@@ -30,6 +29,9 @@ export default {
         ...mapActions([
             'fetchPostById',
         ]),
+    },
+    metaInfo() {
+        return this.currentPostLDJson;
     },
 };
 </script>

@@ -1,11 +1,6 @@
 <template>
     <header>
-        <vue-headful
-            :title="'Martin Heinz - ' + currentPostHeader.title"
-        />
         <h1 class="posttitle" itemprop="name headline">{{ currentPostHeader.title }}</h1>
-
-
         <div class="meta">
 
             <span class="author" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -36,7 +31,18 @@ import { mapGetters, mapActions } from 'vuex';
 export default {
     name: 'PostHeader',
     components: { BaseTag },
-
+    metaInfo() {
+        return {
+            meta: [
+                { name: 'title', content: this.currentPostHeader.title },
+                { name: 'og:title', content: this.currentPostHeader.title },
+                { name: 'og:image', content: 'https://i.imgur.com/GcqmObh.png' }, // TODO Replace with image URL queried from Backend
+                { name: 'og:image:type', content: 'image/png' },
+                { name: 'og:image:width', content: '1024' },
+                { name: 'og:image:height', content: '1024' },
+            ],
+        };
+    },
     watch: {
         '$route.params.id': () => {
             this.fetchPostById({ id: this.$route.params.id });

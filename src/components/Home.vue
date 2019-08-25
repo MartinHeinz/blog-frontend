@@ -7,7 +7,6 @@
         <Projects></Projects>
         <BookList></BookList>
         <Contact></Contact>
-        <script v-html="jsonld" type="application/ld+json"></script>
     </div>
 </template>
 
@@ -26,27 +25,6 @@ export default {
         BookList,
         Contact,
         Projects,
-    },
-
-    data() {
-        const jsonld = {
-            '@context': 'http://schema.org',
-            '@type': 'Person',
-            name: 'Martin Heinz',
-            url: `https://${process.env.VUE_APP_API_URL}`,
-            jobTitle: 'DevOps Engineer',
-            alumniOf: 'Comenius University in Bratislava',
-            gender: 'male',
-            image: '', // TODO
-            sameAs: [
-                'https://www.linkedin.com/in/heinz-martin/',
-                'https://dev.to/martinheinz',
-                'https://medium.com/@martin7.heinz',
-                'https://twitter.com/Martin_Heinz_',
-            ],
-        };
-
-        return { jsonld };
     },
 };
 </script>
