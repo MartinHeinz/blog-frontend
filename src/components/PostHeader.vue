@@ -36,6 +36,7 @@ export default {
             meta: [
                 { name: 'title', content: this.currentPostHeader.title },
                 { name: 'og:title', content: this.currentPostHeader.title },
+                { name: 'og:description', content: this.currentPostHeader.title },
                 { name: 'og:image', content: 'https://i.imgur.com/GcqmObh.png' }, // TODO Replace with image URL queried from Backend
                 { name: 'og:image:type', content: 'image/png' },
                 { name: 'og:image:width', content: '1024' },
