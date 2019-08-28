@@ -6,10 +6,11 @@ import PostListPage from '@/components/PostListPage.vue';
 import Contact from '@/components/Contact.vue';
 import PostEditor from '@/components/PostEditor.vue';
 import NotFound from '@/components/NotFound.vue';
+import store from '@/store';
 
 Vue.use(Router);
 
-export default new Router({
+const router = new Router({
     mode: 'history',
     routes: [
         { path: '/', component: Home },
@@ -21,3 +22,16 @@ export default new Router({
         { path: '*', redirect: '/404' },
     ],
 });
+
+// router.beforeResolve((to, from, next) => {
+//     store.commit('SET_LOADING', true);
+//     // setTimeout(() => {
+//     next();
+//     // }, 2000);
+// });
+//
+// router.afterEach((to, from) => {
+//     store.commit('SET_LOADING', false);
+// });
+
+export default router;

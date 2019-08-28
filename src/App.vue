@@ -1,13 +1,19 @@
 <template>
     <div id="app">
-        <router-view></router-view>
+        <loading></loading>
     </div>
 </template>
 
 <script>
+import BounceLoader from 'vue-spinner/src/BounceLoader.vue';
+import Loading from './components/Loading.vue';
 
 export default {
     name: 'app',
+    components: {
+        Loading,
+        BounceLoader,
+    },
 };
 </script>
 

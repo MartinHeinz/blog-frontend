@@ -13,6 +13,8 @@ const types = {
     SET_PROJECTS: 'SET_PROJECTS',
     SET_POSTS: 'SET_POSTS',
     SET_CURRENT_POST: 'SET_CURRENT_POST',
+    INC_LOADING: 'INC_LOADING',
+    DEC_LOADING: 'DEC_LOADING',
 };
 
 const state = {
@@ -22,6 +24,7 @@ const state = {
     currentPost: Object,
     nextPostExists: false,
     previousPostExists: false,
+    loading: 0,
 };
 
 const getters = {
@@ -112,31 +115,45 @@ const getters = {
 
 const actions = {
     fetchBooks({ commit }) {
+        commit(types.INC_LOADING);
+        console.log("fetchBooks");
         return axios.get(`${API_URL}books/`)
             .then(r => r.data.books)
             .then((books) => {
                 commit(types.SET_BOOKS, books);
+                commit(types.DEC_LOADING);
             });
     },
     fetchProjects({ commit }) {
+        commit(types.INC_LOADING);
+        console.log("fetchProjects");
         return axios.get(`${API_URL}projects/`)
             .then(r => r.data.projects)
             .then((projects) => {
                 commit(types.SET_PROJECTS, projects);
+                commit(types.DEC_LOADING);
             });
     },
     fetchPosts({ commit }) {
+        commit(types.INC_LOADING);
+        console.log("fetchPosts");
+
         return axios.get(`${API_URL}posts/`)
             .then(r => r.data.posts)
             .then((posts) => {
                 commit(types.SET_POSTS, posts);
+                commit(types.DEC_LOADING);
             });
     },
     fetchPostById({ commit }, payload) {
+        commit(types.INC_LOADING);
+        console.log("fetchPostById");
+
         return axios.get(`${API_URL}posts/${payload.id}`)
             .then(r => r.data)
             .then((data) => {
                 commit(types.SET_CURRENT_POST, data);
+                commit(types.DEC_LOADING);
             });
     },
 };
@@ -155,6 +172,12 @@ const mutations = {
         state.currentPost = post;
         state.previousPostExists = post.previous !== null;
         state.nextPostExists = post.next !== null;
+    },
+    [types.INC_LOADING](state) {
+        state.loading += 1;
+    },
+    [types.DEC_LOADING](state) {
+        state.loading -= 1;
     },
 };
 
