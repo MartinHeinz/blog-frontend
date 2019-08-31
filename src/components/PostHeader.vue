@@ -37,10 +37,10 @@ export default {
                 { name: 'title', content: this.currentPostHeader.title },
                 { name: 'og:title', content: this.currentPostHeader.title },
                 { name: 'og:description', content: this.currentPostHeader.title },
-                { name: 'og:image', content: 'https://i.imgur.com/GcqmObh.png' }, // TODO Replace with image URL queried from Backend
+                { name: 'og:image', content: 'https://res.cloudinary.com/martinheinz/image/upload/v1567247069/blog/og_image_s4v0wv.png' },
                 { name: 'og:image:type', content: 'image/png' },
-                { name: 'og:image:width', content: '1024' },
-                { name: 'og:image:height', content: '1024' },
+                { name: 'og:image:width', content: '500' },
+                { name: 'og:image:height', content: '275' },
             ],
         };
     },

@@ -27,7 +27,7 @@
         </p>
 
         <p>
-            I'm also posting my blog posts on <a href="https://dev.to/martinheinz">DEV.to</a> and <a href="https://medium.com/@martin7.heinz">Medium</a>,
+            I'm also posting my blog posts on <a href="https://dev.to/martinheinz">DEV.to</a> and <a href="https://medium.com/@martin.heinz">Medium</a>,
             so you can find them there as well.
         </p>
 
