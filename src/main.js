@@ -12,6 +12,9 @@ import vueHeadful from 'vue-headful';
 
 // Highlight.js languages (Only required languages)
 import python from 'highlight.js/lib/languages/python';
+import shell from 'highlight.js/lib/languages/shell';
+import dockerfile from 'highlight.js/lib/languages/dockerfile';
+import go from 'highlight.js/lib/languages/go';
 import javascript from 'highlight.js/lib/languages/javascript';
 
 // import 'highlight.js/styles/an-old-hope.css';
@@ -71,6 +74,9 @@ Vue.use(VueHighlightJS, {
     languages: {
         javascript,
         python,
+        dockerfile,
+        go,
+        shell,
     },
 });
 
