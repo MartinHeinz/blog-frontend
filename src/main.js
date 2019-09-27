@@ -16,6 +16,8 @@ import shell from 'highlight.js/lib/languages/shell';
 import dockerfile from 'highlight.js/lib/languages/dockerfile';
 import go from 'highlight.js/lib/languages/go';
 import javascript from 'highlight.js/lib/languages/javascript';
+import makefile from 'highlight.js/lib/languages/makefile';
+import yaml from 'highlight.js/lib/languages/yaml';
 
 // import 'highlight.js/styles/an-old-hope.css';
 // import 'highlight.js/styles/darcula.css';
@@ -77,6 +79,8 @@ Vue.use(VueHighlightJS, {
         dockerfile,
         go,
         shell,
+        makefile,
+        yaml,
     },
 });
 
