@@ -1,6 +1,10 @@
 <template>
     <div>
         <h1>Blog Posts</h1>
+        <p>
+            This is a list of my recent blog posts/articles.
+            If you are RSS/Atom user you can subscribe to RSS feed of my blog posts <a :href="`https://${this.getHost()}/rss`">here</a>.
+        </p>
         <span>
             <ul v-if="!postListEmpty" class="post-list">
                 <PostListItem v-for="item in recentPostList"
@@ -44,6 +48,9 @@ export default {
         ...mapActions([
             'fetchPosts',
         ]),
+        getHost() {
+            return process.env.VUE_APP_API_URL;
+        },
     },
 };
 </script>
