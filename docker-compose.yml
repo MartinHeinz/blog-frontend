@@ -18,6 +18,7 @@ services:
     volumes:
       - ./data/certbot/conf:/etc/letsencrypt
       - ./data/certbot/www:/var/www/certbot
+      - ${PWD}/rss.xml:/home/rss.xml
 
   backend:
     image: martinheinz/blog_backend:latest
