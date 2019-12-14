@@ -28,6 +28,15 @@
             </v-hover>
         </li>
         <li>
+            <a :href="`https://${getHost()}/rss`">
+                <v-hover>
+                <v-icon @mouseover="rss_active = true" @mouseout="rss_active = false"
+                        slot-scope="{ hover }"
+                        :class="`${hover? 'icon-active': 'icon-inactive'}`">fas fa-rss</v-icon>
+                </v-hover>
+             </a>
+        </li>
+        <li>
             <v-hover>
             <v-icon href="#" @mouseover="share_active = true" @mouseout="share_active = false"
                     v-on:click="toggle_social_sharing"
@@ -40,6 +49,7 @@
       <span class="info" v-show="prev_active">Previous post</span>
       <span class="info" v-show="next_active">Next post</span>
       <span class="info" v-show="top_active">Back to top</span>
+      <span class="info" v-show="rss_active">RSS feed</span>
       <span class="info" v-show="share_active">Share post</span>
     </span>
 </template>
@@ -60,6 +70,9 @@ export default {
         scrollToTop() {
             window.scrollTo({ top: 0, behavior: 'smooth' });
         },
+        getHost() {
+            return process.env.VUE_APP_API_URL;
+        },
     },
     computed: {
         ...mapGetters([
@@ -72,6 +85,7 @@ export default {
             prev_active: false,
             next_active: false,
             top_active: false,
+            rss_active: false,
             share_active: false,
         };
     },
