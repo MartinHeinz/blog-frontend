@@ -9,14 +9,20 @@
                         slot-scope="{ hover }"
                         :class="`${hover? 'icon-active': 'icon-inactive'}`">fab fa-github</v-icon>
             </v-hover>
-            </a>
-            or on
+            </a>,
             <a class="no-underline" href="https://www.linkedin.com/in/heinz-martin" target="_blank">
             <v-hover>
                 <v-icon @mouseover="next_active = true" @mouseout="next_active = false"
                         slot-scope="{ hover }"
                         :class="`${hover? 'icon-active': 'icon-inactive'}`">fab fa-linkedin</v-icon>
             </v-hover>
+            </a> or on
+            <a class="no-underline" href="https://twitter.com/Martin_Heinz_" target="_blank">
+                <v-hover>
+                    <v-icon @mouseover="next_active = true" @mouseout="next_active = false"
+                            slot-scope="{ hover }"
+                            :class="`${hover? 'icon-active': 'icon-inactive'}`">fab fa-twitter</v-icon>
+                </v-hover>
             </a>.
             </p>
 

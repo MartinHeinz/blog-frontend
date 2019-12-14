@@ -18,6 +18,7 @@ import go from 'highlight.js/lib/languages/go';
 import javascript from 'highlight.js/lib/languages/javascript';
 import makefile from 'highlight.js/lib/languages/makefile';
 import yaml from 'highlight.js/lib/languages/yaml';
+import bash from 'highlight.js/lib/languages/bash';
 
 // import 'highlight.js/styles/an-old-hope.css';
 // import 'highlight.js/styles/darcula.css';
@@ -81,6 +82,7 @@ Vue.use(VueHighlightJS, {
         shell,
         makefile,
         yaml,
+        bash,
     },
 });
 

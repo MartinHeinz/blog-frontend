@@ -8,6 +8,13 @@
                             slot-scope="{ hover }"
                             :class="`${hover? 'icon-active': 'icon-inactive'}`">fab fa-linkedin</v-icon>
                 </v-hover>
+            </a> or
+            <a class="no-underline" href="https://twitter.com/Martin_Heinz_" target="_blank">
+                <v-hover>
+                    <v-icon @mouseover="next_active = true" @mouseout="next_active = false"
+                            slot-scope="{ hover }"
+                            :class="`${hover? 'icon-active': 'icon-inactive'}`">fab fa-twitter</v-icon>
+                </v-hover>
             </a>, as well as on my mail address at <code class="inline">martin7.heinz@gmail.com</code>
         </p>
         <BaseFooter :items="[
