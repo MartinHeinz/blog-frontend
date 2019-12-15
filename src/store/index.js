@@ -159,8 +159,8 @@ const mutations = {
     },
     [types.SET_CURRENT_POST](state, post) {
         state.currentPost = post;
-        state.previousPostExists = post.previous !== null;
-        state.nextPostExists = post.next !== null;
+        state.previousPostExists = post.previous_post_id !== 0;
+        state.nextPostExists = post.next_post_id !== 0;
     },
     [types.LOADING](state, isLoading) {
         if (isLoading) {

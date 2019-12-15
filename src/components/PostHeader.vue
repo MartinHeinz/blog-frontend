@@ -45,12 +45,11 @@ export default {
         };
     },
     watch: {
-        '$route.params.id': () => {
-            this.fetchPostById({ id: this.$route.params.id });
+        '$route.params.id': {
+            handler() {
+                this.fetchPostById({ id: this.$route.params.id });
+            },
         },
-    },
-    mounted() {
-        this.fetchPostById({ id: this.$route.params.id });
     },
     computed: {
         ...mapGetters([
