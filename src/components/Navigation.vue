@@ -124,4 +124,35 @@ export default {
         max-height: calc(95vh - 7rem);
         text-align: right;
     }
+
+    #header-post #nav {
+        color: #2bbc8a;
+        letter-spacing: 0.01em;
+        font-weight: 200;
+        font-style: normal;
+        font-size: 0.82rem;
+    }
+    #header-post #nav ul {
+        line-height: 15px;
+    }
+    #header-post #nav ul a {
+        margin-right: 18px;
+        color: #2bbc8a;
+    }
+    #header-post #nav ul a:hover {
+        background-image: linear-gradient(transparent, transparent 5px, #2bbc8a 5px, #2bbc8a);
+        background-position: bottom;
+        background-size: 100% 6px;
+        background-repeat: repeat-x;
+    }
+    #header-post #nav ul li {
+        border-right: 1px dotted #2bbc8a;
+    }
+    #header-post #nav ul li:last-child {
+        margin-right: 0;
+        border-right: 0;
+    }
+    #header-post #nav ul li:last-child a {
+        margin-right: 0;
+    }
 </style>

@@ -90,7 +90,6 @@ export default {
         background-image: none !important;
     }
 
-    /* Create two equal columns that floats next to each other */
     .column {
         float: left;
         width: 33%;

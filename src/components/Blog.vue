@@ -4,7 +4,7 @@
             :items="[
             {value: 'Home', url: '/'},
             {value: 'Contact', url: '/contact'},
-            {value: 'About', url: '/about'}]">
+            {value: 'Subscribe', url: '/subscribe'}]">
         </Navigation>
         <div class="content">
             <PostHeader>
@@ -13,7 +13,7 @@
             <BaseFooter :items="[
                 {value: 'Home', url: '/'},
                 {value: 'Contact', url: '/contact'},
-                {value: 'About', url: '/about'}]">
+                {value: 'Subscribe', url: '/subscribe'}]">
             </BaseFooter>
         </div>
     </div>

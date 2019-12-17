@@ -15,7 +15,7 @@
         <BaseFooter :items="[
                 {value: 'Home', url: '/'},
                 {value: 'Contact', url: '/contact'},
-                {value: 'About', url: '/about'}]">
+                {value: 'SubscribePage', url: '/subscribe'}]">
         </BaseFooter>
     </div>
 
