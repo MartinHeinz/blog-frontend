@@ -166,7 +166,8 @@ const mutations = {
         if (isLoading) {
             state.refCount += 1;
             state.isLoading = true;
-        } else if (state.refCount > 0) {
+        }
+        else if (state.refCount > 0) {
             state.refCount -= 1;
             state.isLoading = (state.refCount > 0);
         }
