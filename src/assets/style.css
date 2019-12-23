@@ -744,7 +744,7 @@ body {
         display: none;
     }
 }
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 899px) {
     #header-post #menu-icon {
         display: none;
     }
