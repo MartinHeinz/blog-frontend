@@ -739,7 +739,7 @@ body {
 #header-post #toc .toc-number {
     display: none;
 }
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 600px) {
     #header-post {
         display: none;
     }
@@ -748,7 +748,10 @@ body {
     #header-post #menu-icon {
         display: none;
     }
-    #header-post #actions {
+    .icon-active {
+        color: #c9cacc;
+    }
+    #actions .info {
         display: none;
     }
 }

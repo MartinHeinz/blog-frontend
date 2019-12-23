@@ -51,7 +51,7 @@ export default {
         flex: 1;
     }
 
-    @media (min-width: 320px) and (max-width: 480px) {
+    @media (min-width: 320px) and (max-width: 600px) {
         .project-item {
             flex-direction: column;
         }

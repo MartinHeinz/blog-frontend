@@ -108,7 +108,7 @@ export default {
         padding-left: 12px;
     }
 
-    @media (min-width: 320px) and (max-width: 480px) {
+    @media (min-width: 320px) and (max-width: 600px) {
         #cols .column {
             width: 100%;
         }

@@ -97,13 +97,17 @@ export default {
         float: right;
         margin-top: 2rem;
         margin-right: 2rem;
-        width: 100%;
+        width: auto;
         text-align: right;
     }
     #actions ul {
-        display: block;
+        display: inline-block;
+        float: right;
     }
     #actions .info {
+        display: inline;
+        float: left;
+        margin-right: 2rem;
         font-style: italic;
     }
 
