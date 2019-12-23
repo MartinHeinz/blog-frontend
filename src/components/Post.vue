@@ -1,23 +1,22 @@
 <template>
-    <article>
-        <div class="content">
-            <component :is="currentPostText"></component>
-        </div>
-    </article>
+    <div>
+        <article>
+            <div class="content">
+                <component :is="currentPostText"></component>
+            </div>
+        </article>
+        <NavFooter></NavFooter>
+    </div>
 </template>
 
 <script>
 import { mapGetters, mapActions } from 'vuex';
+import NavFooter from '@/components/NavFooter.vue';
 
 export default {
     name: 'Post',
-    watch: {
-        '$route.params.id': () => {
-            this.fetchPostById({ id: this.$route.params.id });
-        },
-    },
-    mounted() {
-        this.fetchPostById({ id: this.$route.params.id });
+    components: {
+        NavFooter,
     },
     computed: {
         ...mapGetters([
