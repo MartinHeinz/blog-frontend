@@ -4,9 +4,10 @@ RUN npm install --no-optional
 COPY . .
 RUN npm run build
 
-FROM nginx:stable-alpine as runner
+FROM nginx-brotli as runner
 COPY --from=builder dist /home/html
-COPY site.conf prod.template /etc/nginx/conf.d/
+COPY site.conf brotli.conf prod.template /etc/nginx/conf.d/
+COPY nginx.conf /etc/nginx/nginx.conf
 COPY .htpasswd /etc/nginx/.htpasswd
 EXPOSE 80
 COPY startup.sh /home/
