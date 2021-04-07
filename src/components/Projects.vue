@@ -4,9 +4,9 @@
         <p>These are some of my projects, you can find all of them on my
             <a class="no-underline" href="https://github.com/MartinHeinz" target="_blank">
             <v-hover>
-                <v-icon @mouseover="next_active = true" @mouseout="next_active = false"
-                        slot-scope="{ hover }"
-                        :class="`${hover? 'icon-active': 'icon-inactive'}`">fab fa-github</v-icon>
+                <font-awesome-icon :icon="['fab', 'github']" @mouseover="next_active = true" @mouseout="next_active = false"
+                                   slot-scope="{ hover }"
+                                   :class="`${hover? 'icon-active': 'icon-inactive'}`"/>
             </v-hover>
             </a>
         </p>

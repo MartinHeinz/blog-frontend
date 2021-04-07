@@ -3,7 +3,7 @@
         <h1>Subscribe to...</h1>
         <div id="cols" class="row">
             <div class="column">
-                <h2><v-icon>fas fa-paper-plane</v-icon> Mailing List!</h2>
+                <h2><font-awesome-icon icon="paper-plane"/> Mailing List!</h2>
                 <!--               envelope-->
                 <!--               envelope-open-text-->
                 <form
@@ -36,7 +36,8 @@
                 </form>
             </div>
             <div class="column">
-                <h2><v-icon>fas fa-rss</v-icon> RSS Feed!</h2>
+                <h2>
+                    <font-awesome-icon icon="rss"/> RSS Feed!</h2>
                 <p>
                     RSS Feed for my blog posts is available <a :href="`https://${this.getHost()}/rss`">here</a>.
                 </p>
