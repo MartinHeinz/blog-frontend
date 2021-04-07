@@ -5,23 +5,23 @@
             You can find me on
             <a class="no-underline" href="https://github.com/MartinHeinz" target="_blank">
             <v-hover>
-                <v-icon @mouseover="next_active = true" @mouseout="next_active = false"
-                        slot-scope="{ hover }"
-                        :class="`${hover? 'icon-active': 'icon-inactive'}`">fab fa-github</v-icon>
+                <font-awesome-icon :icon="['fab', 'github']" @mouseover="next_active = true" @mouseout="next_active = false"
+                                   slot-scope="{ hover }"
+                                   :class="`${hover? 'icon-active': 'icon-inactive'}`"/>
             </v-hover>
             </a>,
             <a class="no-underline" href="https://www.linkedin.com/in/heinz-martin" target="_blank">
             <v-hover>
-                <v-icon @mouseover="next_active = true" @mouseout="next_active = false"
-                        slot-scope="{ hover }"
-                        :class="`${hover? 'icon-active': 'icon-inactive'}`">fab fa-linkedin</v-icon>
+                <font-awesome-icon :icon="['fab', 'linkedin']" @mouseover="next_active = true" @mouseout="next_active = false"
+                                   slot-scope="{ hover }"
+                                   :class="`${hover? 'icon-active': 'icon-inactive'}`"/>
             </v-hover>
             </a> or on
             <a class="no-underline" href="https://twitter.com/Martin_Heinz_" target="_blank">
                 <v-hover>
-                    <v-icon @mouseover="next_active = true" @mouseout="next_active = false"
-                            slot-scope="{ hover }"
-                            :class="`${hover? 'icon-active': 'icon-inactive'}`">fab fa-twitter</v-icon>
+                    <font-awesome-icon :icon="['fab', 'twitter']" @mouseover="next_active = true" @mouseout="next_active = false"
+                                       slot-scope="{ hover }"
+                                       :class="`${hover? 'icon-active': 'icon-inactive'}`"/>
                 </v-hover>
             </a>.
             </p>
@@ -39,7 +39,7 @@
 
         <div id="cols" class="row">
             <div class="column">
-                <h2><v-icon>fas fa-heartbeat</v-icon> Life so far...</h2>
+                <h2><font-awesome-icon icon="heartbeat"/> Life so far...</h2>
                 <ul class="about-list">
                     <li>Breathing since 1994</li>
                     <li>Started studying CS in 2014</li>
@@ -49,7 +49,7 @@
                 </ul>
             </div>
             <div class="column">
-                <h2><v-icon>fas fa-fire</v-icon> Passionate about...</h2>
+                <h2><font-awesome-icon icon="fire"/> Passionate about...</h2>
                 <ul class="about-list">
                     <li>Food</li>
                     <li>Books</li>
@@ -59,7 +59,7 @@
                 </ul>
             </div>
             <div class="column">
-                <h2><v-icon>fas fa-lightbulb</v-icon> Thinking about...</h2>
+                <h2><font-awesome-icon icon="lightbulb"/> Thinking about...</h2>
                 <ul class="about-list">
                     <li>Cloud-Native Apps</li>
                     <li>Cryptography</li>

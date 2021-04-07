@@ -2,29 +2,29 @@
     <div class="navbar" :class="{ 'navbar--hidden': !showNavbar }">
         <span class="footer-action" v-if="previousPostExists">
             <router-link :to="actions.url_previous">
-                <v-icon size="20" :href="actions.url_previous">fas fa-chevron-left</v-icon>
+                <font-awesome-icon icon="chevron-left" size="20" :href="actions.url_previous"/>
                 <span class="footer-action-text">Previous</span>
             </router-link>
         </span>
         <span class="footer-action" v-if="nextPostExists">
             <router-link :to="actions.url_next">
-                <v-icon size="20" :href="actions.url_next">fas fa-chevron-right</v-icon>
+                <font-awesome-icon icon="chevron-right" size="20" :href="actions.url_next"/>
                 <span class="footer-action-text">Next</span>
             </router-link>
         </span>
 
         <span class="footer-action">
             <router-link to="/subscribe">
-                <v-icon size="17"
-                >fas fa-rss</v-icon>
+                <font-awesome-icon size="17" icon="rss"/>
                 <span class="footer-action-text">Subscribe</span>
             </router-link>
         </span>
         <span class="footer-action" v-on:click="scrollToTop">
-            <v-icon id="top_icon"
-                    href="#"
-                    size="20"
-            >fas fa-chevron-up</v-icon>
+            <font-awesome-icon id="top_icon"
+                               icon="chevron-up"
+                               href="#"
+                               size="20"
+            />
             <span class="footer-action-text">Top</span>
         </span>
     </div>

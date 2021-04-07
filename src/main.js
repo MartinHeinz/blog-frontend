@@ -1,4 +1,9 @@
-import '@fortawesome/fontawesome-free/css/all.css';
+import { dom, library } from '@fortawesome/fontawesome-svg-core';
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
+import {
+    faHeartbeat, faFire, faLightbulb, faChevronLeft, faChevronRight, faChevronUp, faRss, faShareAlt, faTag, faBars, faPaperPlane,
+} from '@fortawesome/free-solid-svg-icons';
+import { faGithub, faLinkedin, faTwitter } from '@fortawesome/free-brands-svg-icons';
 import Vue from 'vue';
 import VueMeta from 'vue-meta';
 import VueHighlightJS from 'vue-highlight.js';
@@ -68,8 +73,16 @@ requireComponent.keys().forEach((fileName) => {
 
 Vue.component('vue-headful', vueHeadful);
 
+Vue.component('font-awesome-icon', FontAwesomeIcon); // Register component globally
+library.add(
+    faHeartbeat, faFire, faLightbulb, faChevronLeft, faChevronRight, faChevronUp, faRss, faShareAlt, faTag, faBars, faPaperPlane,
+    faGithub, faLinkedin, faTwitter,
+); // Include needed icons
+
+dom.i2svg();
+
 Vue.use(Vuetify, {
-    iconfont: 'fa',
+    iconfont: 'faSvg',
 });
 
 Vue.use(VueHighlightJS, {

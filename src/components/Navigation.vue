@@ -1,15 +1,15 @@
 <template>
     <div id="header-post">
-        <v-icon id="menu-icon" href="#"
-                v-on:click="active = !active"
-                v-bind:class="{ 'menu-active' : active }">fas fa-bars fa-lg</v-icon>
-        <v-icon id="menu-icon-tablet" href="#"
-                v-on:click="active = !active"
-                v-bind:class="{ 'menu-active' : active }">fas fa-bars fa-lg</v-icon>
+        <font-awesome-icon id="menu-icon" href="#" icon="bars" size="lg"
+                           v-on:click="active = !active"
+                           v-bind:class="{ 'menu-active' : active }"/>
+        <font-awesome-icon id="menu-icon-tablet" href="#" icon="bars" size="lg"
+                           v-on:click="active = !active"
+                           v-bind:class="{ 'menu-active' : active }"/>
 
-        <v-icon id="top-icon-tablet" href="#" style="display:none;"
-                v-on:click="active = !active"
-                v-bind:class="{ 'menu-active' : active }">fas fa-chevron-up fa-lg</v-icon>
+        <font-awesome-icon id="top-icon-tablet" href="#" style="display:none;" icon="bars" size="lg"
+                           v-on:click="active = !active"
+                           v-bind:class="{ 'menu-active' : active }"/>
         <span id="menu" style="visibility: visible;"
               v-show="active">
             <BaseMenu :items=items></BaseMenu>

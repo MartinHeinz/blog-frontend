@@ -9,7 +9,7 @@
             <h2>{{ name }}</h2>
             <p>{{ description }}</p>
             <div class="project-tag">
-                <v-icon>fas fa-tag</v-icon>
+                <font-awesome-icon icon="tag"/>
                 <BaseTag class="no-underline" v-for="tag in tags"
                      v-bind:url="tag.url"
                      v-bind:name="tag.name"

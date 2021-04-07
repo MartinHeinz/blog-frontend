@@ -4,16 +4,16 @@
         <p>You can reach out to me through
             <a class="no-underline" href="https://www.linkedin.com/in/heinz-martin" target="_blank">
                 <v-hover>
-                    <v-icon @mouseover="next_active = true" @mouseout="next_active = false"
-                            slot-scope="{ hover }"
-                            :class="`${hover? 'icon-active': 'icon-inactive'}`">fab fa-linkedin</v-icon>
+                    <font-awesome-icon :icon="['fab', 'linkedin']" @mouseover="next_active = true" @mouseout="next_active = false"
+                                       slot-scope="{ hover }"
+                                       :class="`${hover? 'icon-active': 'icon-inactive'}`"/>
                 </v-hover>
             </a> or
             <a class="no-underline" href="https://twitter.com/Martin_Heinz_" target="_blank">
                 <v-hover>
-                    <v-icon @mouseover="next_active = true" @mouseout="next_active = false"
-                            slot-scope="{ hover }"
-                            :class="`${hover? 'icon-active': 'icon-inactive'}`">fab fa-twitter</v-icon>
+                    <font-awesome-icon :icon="['fab', 'twitter']" @mouseover="next_active = true" @mouseout="next_active = false"
+                                       slot-scope="{ hover }"
+                                       :class="`${hover? 'icon-active': 'icon-inactive'}`"/>
                 </v-hover>
             </a>, as well as on my mail address at <code class="inline">martin7.heinz@gmail.com</code>
         </p>

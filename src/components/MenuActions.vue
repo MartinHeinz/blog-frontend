@@ -5,43 +5,44 @@
         <li v-if="previousPostExists">
             <router-link :to="url_previous">
                 <v-hover>
-                <v-icon :href="url_previous" @mouseover="prev_active = true" @mouseout="prev_active = false"
-                        slot-scope="{ hover }"
-                        :class="`${hover? 'icon-active': 'icon-inactive'}`">fas fa-chevron-left</v-icon>
+                <font-awesome-icon icon="chevron-left" :href="url_previous" @mouseover="prev_active = true" @mouseout="prev_active = false"
+                                   slot-scope="{ hover }"
+                                   :class="`${hover? 'icon-active': 'icon-inactive'}`"/>
                 </v-hover>
             </router-link>
         </li>
         <li v-if="nextPostExists">
             <router-link :to="url_next">
                 <v-hover>
-                <v-icon :href="url_next" @mouseover="next_active = true" @mouseout="next_active = false"
-                        slot-scope="{ hover }"
-                        :class="`${hover? 'icon-active': 'icon-inactive'}`">fas fa-chevron-right</v-icon>
+                <font-awesome-icon icon="chevron-right" :href="url_next" @mouseover="next_active = true" @mouseout="next_active = false"
+                                   slot-scope="{ hover }"
+                                   :class="`${hover? 'icon-active': 'icon-inactive'}`"/>
                 </v-hover>
             </router-link>
         </li>
         <li>
             <v-hover>
-            <v-icon id="top_icon" :large=false href="#" @mouseover="top_active = true" @mouseout="top_active = false" @click.native="scrollToTop"
-                    slot-scope="{ hover }"
-                    :class="`${hover? 'icon-active': 'icon-inactive'}`">fas fa-chevron-up</v-icon>
+            <font-awesome-icon id="top_icon" icon="chevron-up" :large=false href="#" @mouseover="top_active = true" @mouseout="top_active = false"
+                               @click.native="scrollToTop"
+                               slot-scope="{ hover }"
+                               :class="`${hover? 'icon-active': 'icon-inactive'}`"/>
             </v-hover>
         </li>
         <li>
             <a :href="`https://${getHost()}/rss`">
                 <v-hover>
-                <v-icon @mouseover="rss_active = true" @mouseout="rss_active = false"
-                        slot-scope="{ hover }"
-                        :class="`${hover? 'icon-active': 'icon-inactive'}`">fas fa-rss</v-icon>
+                <font-awesome-icon icon="rss" @mouseover="rss_active = true" @mouseout="rss_active = false"
+                                   slot-scope="{ hover }"
+                                   :class="`${hover? 'icon-active': 'icon-inactive'}`"/>
                 </v-hover>
              </a>
         </li>
         <li>
             <v-hover>
-            <v-icon href="#" @mouseover="share_active = true" @mouseout="share_active = false"
-                    v-on:click="toggle_social_sharing"
-                    slot-scope="{ hover }"
-                    :class="`${hover? 'icon-active': 'icon-inactive'}`">fas fa-share-alt</v-icon>
+            <font-awesome-icon href="#" icon="share-alt" @mouseover="share_active = true" @mouseout="share_active = false"
+                               v-on:click="toggle_social_sharing"
+                               slot-scope="{ hover }"
+                               :class="`${hover? 'icon-active': 'icon-inactive'}`"/>
             </v-hover>
         </li>
       </ul>

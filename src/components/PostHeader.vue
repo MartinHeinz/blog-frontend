@@ -12,7 +12,7 @@
             </div>
 
             <div class="article-tag">
-                <v-icon>fas fa-tag</v-icon>
+                <font-awesome-icon icon="tag"/>
                 <BaseTag v-for="tag in currentPostHeader.tags"
                               v-bind:url="tag.url"
                               v-bind:name="tag.name"
