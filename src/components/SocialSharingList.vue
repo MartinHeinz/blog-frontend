@@ -5,42 +5,37 @@
             <ul class="networks">
                 <li>
                     <network network="facebook">
-                        <i class="fab fa-facebook" ></i>
+                        <font-awesome-icon :icon="['fab', 'facebook']"></font-awesome-icon>
                     </network>
                 </li>
                 <li>
                     <network network="linkedin">
-                        <i class="fab fa-linkedin"></i>
-                    </network>
-                </li>
-                <li>
-                    <network network="pinterest">
-                        <i class="fab fa-pinterest"></i>
+                        <font-awesome-icon :icon="['fab', 'linkedin']"></font-awesome-icon>
                     </network>
                 </li>
                 <li>
                     <network network="reddit">
-                        <i class="fab fa-reddit"></i>
+                        <font-awesome-icon :icon="['fab', 'reddit']"></font-awesome-icon>
                     </network>
                 </li>
                 <li>
                     <network network="twitter">
-                        <i class="fab fa-twitter"></i>
+                        <font-awesome-icon :icon="['fab', 'twitter']"></font-awesome-icon>
                     </network>
                 </li>
                 <li>
                     <network network="vk">
-                        <i class="fab fa-vk"></i>
+                        <font-awesome-icon :icon="['fab', 'vk']"></font-awesome-icon>
                     </network>
                 </li>
                 <li>
                     <network network="weibo">
-                        <i class="fab fa-weibo"></i>
+                        <font-awesome-icon :icon="['fab', 'weibo']"></font-awesome-icon>
                     </network>
                 </li>
                 <li>
                     <network network="whatsapp">
-                        <i class="fab fa-whatsapp"></i>
+                        <font-awesome-icon :icon="['fab', 'whatsapp']"></font-awesome-icon>
                     </network>
                 </li>
             </ul>
