@@ -22,10 +22,11 @@
         </li>
         <li>
             <v-hover>
-            <font-awesome-icon id="top_icon" icon="chevron-up" :large=false href="#" @mouseover="top_active = true" @mouseout="top_active = false"
-                               @click.native="scrollToTop"
-                               slot-scope="{ hover }"
-                               :class="`${hover? 'icon-active': 'icon-inactive'}`"/>
+                <a href="#" id="top_icon"
+                   @mouseover="top_active = true" @mouseout="top_active = false" @click.native="scrollToTop"
+                   slot-scope="{ hover }" :class="`${hover? 'icon-active': 'icon-inactive'}`">
+                        <font-awesome-icon icon="chevron-up"/>
+                </a>
             </v-hover>
         </li>
         <li>
