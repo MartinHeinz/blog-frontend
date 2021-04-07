@@ -1,21 +1,26 @@
-const ClosurePlugin = require('closure-webpack-plugin');  // npm install --save-dev closure-webpack-plugin google-closure-compiler
+const TerserPlugin = require('terser-webpack-plugin');
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 
 module.exports = {
     configureWebpack: {
         plugins: [
-          new ClosurePlugin()  // alternatively use 'AGGRESSIVE_BUNDLE'
-        ]
-    },
-    runtimeCompiler: true,
-    css: {
-        loaderOptions: {
-            css: {
-                test: /\.styl$/,
-                loader: 'css-loader!stylus-loader?paths=node_modules/bootstrap-stylus/stylus/',
+        ],
+        optimization: {
+            usedExports: true,
+            minimize: true,
+            minimizer: [
+                new TerserPlugin({
+                    parallel: true,
+                    terserOptions: {
+                    },
+                }),
+                new CssMinimizerPlugin(),
+            ],
+            splitChunks: {
+                chunks: 'all',
             },
-            postcss: {
-                // options here will be passed to postcss-loader
-            },
+            mangleWasmImports: true,
         },
     },
+    runtimeCompiler: true,
 };
