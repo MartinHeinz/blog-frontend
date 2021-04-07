@@ -10,8 +10,6 @@
         <v-icon id="top-icon-tablet" href="#" style="display:none;"
                 v-on:click="active = !active"
                 v-bind:class="{ 'menu-active' : active }">fas fa-chevron-up fa-lg</v-icon>
-
-
         <span id="menu" style="visibility: visible;"
               v-show="active">
             <BaseMenu :items=items></BaseMenu>
@@ -81,7 +79,6 @@ export default {
     },
 };
 </script>
-
 
 <style>
     #header-post #menu-icon:hover {

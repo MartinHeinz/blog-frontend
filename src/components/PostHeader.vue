@@ -73,7 +73,6 @@ export default {
         background-repeat: repeat-x;
     }
 
-
     .tag-link a:hover {
         box-shadow: inset 0 0px 0 white, inset 0 -2px 0 #d480aa;
     }
