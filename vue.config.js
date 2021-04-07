@@ -1,4 +1,11 @@
+const ClosurePlugin = require('closure-webpack-plugin');  // npm install --save-dev closure-webpack-plugin google-closure-compiler
+
 module.exports = {
+    configureWebpack: {
+        plugins: [
+          new ClosurePlugin()  // alternatively use 'AGGRESSIVE_BUNDLE'
+        ]
+    },
     runtimeCompiler: true,
     css: {
         loaderOptions: {
