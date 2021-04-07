@@ -119,28 +119,28 @@ const getters = {
 const actions = {
     fetchBooks({ commit }) {
         return axios.get(`${API_URL}books/`)
-            .then(r => r.data.books)
+            .then((r) => r.data.books)
             .then((books) => {
                 commit(types.SET_BOOKS, books);
             });
     },
     fetchProjects({ commit }) {
         return axios.get(`${API_URL}projects/`)
-            .then(r => r.data.projects)
+            .then((r) => r.data.projects)
             .then((projects) => {
                 commit(types.SET_PROJECTS, projects);
             });
     },
     fetchPosts({ commit }) {
         return axios.get(`${API_URL}posts/`)
-            .then(r => r.data.posts)
+            .then((r) => r.data.posts)
             .then((posts) => {
                 commit(types.SET_POSTS, posts);
             });
     },
     fetchPostById({ commit }, payload) {
         return axios.get(`${API_URL}posts/${payload.id}`)
-            .then(r => r.data)
+            .then((r) => r.data)
             .then((data) => {
                 commit(types.SET_CURRENT_POST, data);
             });

@@ -86,22 +86,19 @@ Vue.use(VueHighlightJS, {
     },
 });
 
-
 const SocialSharing = require('vue-social-sharing');
 
 Vue.use(SocialSharing);
-
 
 Vue.use(VueMeta, {
     // optional pluginOptions
     refreshOnceOnNavigation: true,
 });
 
-
-Vue.filter('formatDate', value => moment(String(value)).format('ll'));
+Vue.filter('formatDate', (value) => moment(String(value)).format('ll'));
 
 new Vue({
     router,
     store,
-    render: h => h(App),
+    render: (h) => h(App),
 }).$mount('#app');
