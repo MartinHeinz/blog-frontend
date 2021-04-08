@@ -51,6 +51,7 @@
     "stylus-loader": "^3.0.2",
     "terser-webpack-plugin": "^4.2.3",
     "vue-jest": "^3.0.4",
-    "vue-template-compiler": "^2.5.21"
+    "vue-template-compiler": "^2.5.21",
+    "webpack-font-preload-plugin": "^1.2.0"
   }
 }
