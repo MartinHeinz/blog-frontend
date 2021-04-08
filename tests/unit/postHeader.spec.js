@@ -1,10 +1,10 @@
 import { createLocalVue, shallowMount } from '@vue/test-utils';
 import PostHeader from '@/components/PostHeader.vue';
 
-import moment from 'moment';
 import Vuetify from 'vuetify';
 import Vue from 'vue';
 import Vuex from 'vuex';
+import dayjs from 'dayjs';
 
 const header = {
     title: 'Second Blog Post',
@@ -57,7 +57,7 @@ describe('PostHeader.vue', () => {
     it('Sets header attributes of blog post header', () => {
         const localVue = createLocalVue();
         localVue.use(Vuetify);
-        localVue.filter('formatDate', value => moment(String(value)).format('ll')); // TODO import this from @/main.js
+        localVue.filter('formatDate', value => dayjs(String(value)).format('ll')); // TODO import this from @/main.js
 
         const wrapper = shallowMount(PostHeader, {
             localVue,

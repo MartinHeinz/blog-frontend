@@ -11,8 +11,7 @@ import VueMeta from 'vue-meta';
 import VueHighlightJS from 'vue-highlight.js';
 import upperFirst from 'lodash/upperFirst';
 import camelCase from 'lodash/camelCase';
-import moment from 'moment';
-import Vuetify from 'vuetify';
+import Vuetify from 'vuetify/lib';
 import router from '@/router';
 import store from '@/store';
 import vueHeadful from 'vue-headful';
@@ -36,6 +35,10 @@ import 'highlight.js/styles/atom-one-dark-reasonable.css';
 import App from '@/App.vue';
 
 import '@/assets/style.css';
+import localizableFormat from 'dayjs/plugin/localizedFormat';
+import dayjs from 'dayjs';
+
+dayjs.extend(localizableFormat);
 
 Vue.config.productionTip = false;
 
@@ -110,7 +113,7 @@ Vue.use(VueMeta, {
     refreshOnceOnNavigation: true,
 });
 
-Vue.filter('formatDate', (value) => moment(String(value)).format('ll'));
+Vue.filter('formatDate', (value) => dayjs(String(value)).format('ll'));
 
 new Vue({
     router,
