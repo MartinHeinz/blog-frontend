@@ -1,10 +1,16 @@
 const TerserPlugin = require('terser-webpack-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
-const FontPreloadPlugin = require("webpack-font-preload-plugin");
+const FontPreloadPlugin = require('webpack-font-preload-plugin');
+// const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
+const VuetifyLoaderPlugin = require('vuetify-loader/lib/plugin');
 
 module.exports = {
     configureWebpack: {
-        plugins: [new FontPreloadPlugin()],
+        plugins: [
+            new FontPreloadPlugin(),
+            // new BundleAnalyzerPlugin(),
+            new VuetifyLoaderPlugin(),
+        ],
         optimization: {
             usedExports: true,
             minimize: true,

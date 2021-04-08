@@ -1,8 +1,8 @@
 import { createLocalVue, mount, RouterLinkStub } from '@vue/test-utils';
 import PostList from '@/components/PostList.vue';
-import moment from 'moment';
 import Vue from 'vue';
 import Vuex from 'vuex';
+import dayjs from 'dayjs';
 
 const items = [
     {
@@ -62,7 +62,7 @@ describe('PostList.vue', () => {
 
     it('renders correcly', () => {
         const localVue = createLocalVue();
-        localVue.filter('formatDate', value => moment(String(value)).format('ll')); // TODO import this from @/main.js
+        localVue.filter('formatDate', value => dayjs(String(value)).format('ll')); // TODO import this from @/main.js
         localVue.component('router-link', RouterLinkStub);
         const wrapper = mount(PostList, {
             computed: {

@@ -1,14 +1,14 @@
 import { createLocalVue, mount } from '@vue/test-utils';
 import PostListItem from '@/components/PostListItem.vue';
 import Router from 'vue-router';
-import moment from 'moment';
+import dayjs from 'dayjs';
 
 describe('PostListItem.vue', () => {
     it('Creates list item with link and date', () => {
         const localVue = createLocalVue();
         const router = new Router({ mode: 'history' });
         localVue.use(Router);
-        localVue.filter('formatDate', value => moment(String(value)).format('ll')); // TODO import this from @/main.js
+        localVue.filter('formatDate', value => dayjs(String(value)).format('ll')); // TODO import this from @/main.js
 
         const published = '2018-01-01T15:30:00Z';
         const url = '/blog/9';
