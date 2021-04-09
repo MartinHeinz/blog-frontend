@@ -25,6 +25,8 @@ import javascript from 'highlight.js/lib/languages/javascript';
 import makefile from 'highlight.js/lib/languages/makefile';
 import yaml from 'highlight.js/lib/languages/yaml';
 import bash from 'highlight.js/lib/languages/bash';
+import ini from 'highlight.js/lib/languages/ini';
+import json from 'highlight.js/lib/languages/json';
 
 // import 'highlight.js/styles/an-old-hope.css';
 // import 'highlight.js/styles/darcula.css';
@@ -101,6 +103,8 @@ Vue.use(VueHighlightJS, {
         makefile,
         yaml,
         bash,
+        ini,
+        json,
     },
 });
 
