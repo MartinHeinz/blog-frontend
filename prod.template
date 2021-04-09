@@ -29,12 +29,6 @@ server {
         auth_basic off;
     }
 
-    location ~* ^.+\.(?:css|cur|js|jpe?g|gif|htc|ico|png|html|xml|otf|ttf|eot|woff|woff2|svg)$ {
-        access_log    off;
-        add_header    Cache-Control public;
-        expires       30d;
-    }
-
     # In order to avoid favicon errors on some navigators like IE
     # which would pollute Nginx logs (do use the "=")
     location = /favicon.ico {
