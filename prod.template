@@ -48,6 +48,7 @@ server {
 
     location /sitemap {
         index sitemap.xml;
+        alias /home;
     }
 
     # robots.txt file generated on the fly

@@ -19,6 +19,7 @@ services:
       - ./data/certbot/conf:/etc/letsencrypt
       - ./data/certbot/www:/var/www/certbot
       - ${PWD}/rss.xml:/home/rss.xml
+      - ${PWD}/sitemap.xml:/home/sitemap.xml
 
   backend:
     image: martinheinz/blog_backend:latest
