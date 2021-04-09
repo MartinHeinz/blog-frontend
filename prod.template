@@ -46,6 +46,10 @@ server {
         alias /home;
     }
 
+    location /sitemap {
+        index sitemap.xml;
+    }
+
     # robots.txt file generated on the fly
     location /robots.txt {
         return 200 "User-agent: *\nDisallow: \n\nUser-agent: *\nDisallow: /api/v1/";
