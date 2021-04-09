@@ -33,6 +33,7 @@ export default {
     components: { BaseTag },
     metaInfo() {
         return {
+            title: this.currentPostHeader.title,
             meta: [
                 { name: 'title', content: this.currentPostHeader.title },
                 { name: 'og:title', content: this.currentPostHeader.title },

@@ -46,6 +46,10 @@ export default {
             'isLoading',
         ]),
     },
+    metaInfo: {
+        title: 'Personal Website & Blog',
+        titleTemplate: 'Martin Heinz | %s',
+    },
 };
 </script>
 
