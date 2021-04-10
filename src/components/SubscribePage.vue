@@ -8,7 +8,7 @@
                 <!--               envelope-open-text-->
                 <form
                     id="sub-mail"
-                    @submit="checkForm"
+                    v-on:submit="submitForm"
                     method="post"
                     novalidate="true"
                 >
@@ -22,17 +22,22 @@
                         <input id="email" type="email" v-model="email" placeholder="E-mail Address">
                     </p>
                     <p class="form-field">
-                        <input id="nickname" type="text" v-model="nickname" placeholder="Name (Optional)">
+                        <input id="nickname" type="text" v-model="nickname" placeholder="Name">
                     </p>
                     <p class="form-field">
                         <input
                             type="submit"
                             value="Submit"
-                            disabled
                         >
-
-                        <i style="padding-left: 25px;">Coming soon...</i>
                     </p>
+                    <div v-if="subscribed === 'success'">
+                        <b>Thanks for subscribing! You will receive e-mail shortly.</b>
+                    </div>
+                    <div v-else-if="subscribed === 'fail'">
+                        <b>Something went wrong...</b>
+                    </div>
+                    <div v-else>
+                    </div>
                 </form>
             </div>
             <div class="column">
@@ -52,7 +57,9 @@
 </template>
 
 <script>
+import { API_URL } from '@/common/config';
 import BaseFooter from '@/components/BaseFooter.vue';
+import axios from 'axios';
 
 export default {
     name: 'SubscribePage',
@@ -64,16 +71,20 @@ export default {
             email: '',
             nickname: '',
             errors: [],
+            subscribed: '',
         };
     },
     methods: {
         getHost() {
             return process.env.VUE_APP_API_URL;
         },
-        /* eslint consistent-return: 0 */
-        checkForm(e) {
+        checkForm() {
             this.errors = [];
-            if (!this.email) {
+            this.subscribed = '';
+            if (!this.nickname) {
+                this.errors.push('Name or nickname required.');
+            }
+            else if (!this.email) {
                 this.errors.push('Email required.');
             }
             else if (!this.validEmail(this.email)) {
@@ -82,12 +93,32 @@ export default {
             if (!this.errors.length) {
                 return true;
             }
-
-            e.preventDefault();
+            return false;
         },
         validEmail(email) {
             const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
             return re.test(email);
+        },
+        subscribe() {
+            axios.post(`${API_URL}newsletter/subscribe/`, {
+                name: this.nickname,
+                email: this.email,
+            }).then((response) => {
+                if (response.status === 200) {
+                    this.subscribed = 'success';
+                }
+                else {
+                    this.subscribed = 'fail';
+                }
+            }, () => {
+                this.subscribed = 'fail';
+            });
+        },
+        submitForm(e) {
+            if (this.checkForm()) {
+                this.subscribe();
+            }
+            e.preventDefault();
         },
     },
 };

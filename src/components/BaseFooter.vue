@@ -1,7 +1,7 @@
 <template>
     <footer id="footer">
         <div class="footer-left">
-            Copyright &copy; 2019 Martin Heinz
+            Copyright &copy; 2021 Martin Heinz
         </div>
         <div class="footer-right">
             <nav>
