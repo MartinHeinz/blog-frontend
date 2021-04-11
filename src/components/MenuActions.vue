@@ -1,6 +1,6 @@
 <template>
     <span id="actions">
-      <a id="top"></a>
+      <a id="top" href="#"/>
       <ul>
         <li v-if="previousPostExists">
             <router-link :to="url_previous">

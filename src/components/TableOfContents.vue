@@ -1,6 +1,7 @@
 <template>
     <div>
-        <a :href="href">
+<!--        <a :href="href">-->
+        <a href="#">
         <div v-bind:class="setStyle">{{ label }}</div>
         <TableOfContents
             v-for="(node, index) in nodes"
