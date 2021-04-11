@@ -3,7 +3,7 @@
         <h1>Blog Posts</h1>
         <p>
             This is a list of my recent blog posts/articles.
-            If you are RSS/Atom user you can subscribe to RSS feed of my blog posts <a :href="`https://${this.getHost()}/rss`">here</a>.
+            You can also subscribe to my e-mail newsletter or RSS/Atom feed of my blog posts <router-link to="/subscribe">here.</router-link>
         </p>
         <span>
             <ul v-if="!postListEmpty" class="post-list">
@@ -48,9 +48,6 @@ export default {
         ...mapActions([
             'fetchPosts',
         ]),
-        getHost() {
-            return process.env.VUE_APP_API_URL;
-        },
     },
 };
 </script>
