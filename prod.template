@@ -29,7 +29,7 @@ server {
         auth_basic off;
     }
 
-    location ~* \.(?:cur|jpe?g|gif|htc|ico|png|xml|otf|ttf|eot|woff|woff2|svg)$ {
+    location ~* \.(?:cur|jpe?g|gif|htc|ico|png|otf|ttf|eot|woff|woff2|svg)$ {
         root /home/html;
         access_log    off;
         add_header    Cache-Control public;
