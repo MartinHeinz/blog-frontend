@@ -22,9 +22,6 @@
                         <input id="email" type="email" v-model="email" placeholder="E-mail Address">
                     </p>
                     <p class="form-field">
-                        <input id="nickname" type="text" v-model="nickname" placeholder="Name">
-                    </p>
-                    <p class="form-field">
                         <input
                             type="submit"
                             value="Submit"
@@ -69,7 +66,6 @@ export default {
     data() {
         return {
             email: '',
-            nickname: '',
             errors: [],
             subscribed: '',
         };
@@ -81,10 +77,7 @@ export default {
         checkForm() {
             this.errors = [];
             this.subscribed = '';
-            if (!this.nickname) {
-                this.errors.push('Name or nickname required.');
-            }
-            else if (!this.email) {
+            if (!this.email) {
                 this.errors.push('Email required.');
             }
             else if (!this.validEmail(this.email)) {
@@ -101,7 +94,6 @@ export default {
         },
         subscribe() {
             axios.post(`${API_URL}newsletter/subscribe/`, {
-                name: this.nickname,
                 email: this.email,
             }).then((response) => {
                 if (response.status === 200) {
