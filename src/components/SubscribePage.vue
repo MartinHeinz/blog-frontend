@@ -28,7 +28,7 @@
                         >
                     </p>
                     <div v-if="subscribed === 'success'">
-                        <b>Thanks for subscribing! You will receive e-mail shortly.</b>
+                        <b>Thanks! You will receive e-mail with confirmation link shortly.</b>
                     </div>
                     <div v-else-if="subscribed === 'fail'">
                         <b>Something went wrong...</b>
