@@ -1,6 +1,6 @@
 <template>
     <a class="no-underline" :href="url">
-        <img :src="src" :alt="alt"  height="195" width="130">
+        <img :src="src" :alt="alt" loading="lazy" height="195" width="130">
     </a>
 </template>
 
