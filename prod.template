@@ -65,6 +65,11 @@ server {
         alias /home;
     }
 
+    location /newsletter {
+        index newsletter.xml;
+        alias /home;
+    }
+
     location /sitemap {
         index sitemap.xml;
         alias /home;
