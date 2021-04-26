@@ -27,20 +27,6 @@ server {
         try_files $uri $uri/ /index.html;
         root /home/html;
         auth_basic off;
-
-        add_header             X-Cache-Status $upstream_cache_status;
-
-        proxy_pass             https://martinheinz.dev;
-        proxy_set_header       Host $host;
-        proxy_buffering        on;
-        proxy_cache            STATIC;
-        proxy_cache_valid      any  48h;
-        proxy_cache_use_stale  error timeout invalid_header updating
-                               http_500 http_502 http_503 http_504;
-
-        proxy_ignore_headers   X-Accel-Expires Expires Cache-Control;
-        proxy_ignore_headers   "Set-Cookie";
-        proxy_hide_header      "Set-Cookie";
     }
 
     location ~* \.(?:cur|jpe?g|gif|htc|ico|png|otf|ttf|eot|woff|woff2|svg)$ {
