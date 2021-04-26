@@ -19,6 +19,7 @@ services:
       - ./data/certbot/conf:/etc/letsencrypt
       - ./data/certbot/www:/var/www/certbot
       - ${PWD}/rss.xml:/home/rss.xml
+      - ${PWD}/newsletter.xml:/home/newsletter.xml
       - ${PWD}/sitemap.xml:/home/sitemap.xml
 
   backend:
