@@ -12,6 +12,10 @@ server {
     }
 }
 
+#upstream backend {
+#    server localhost;
+#}
+
 server {
     listen 443 ssl;
     server_name ${NGINX_HOST};
@@ -30,8 +34,13 @@ server {
 
         add_header             X-Cache-Status $upstream_cache_status;
 
-        proxy_pass             https://${NGINX_HOST};
-        proxy_set_header       Host $host;
+        #proxy_pass             http://backend/;
+        proxy_pass             https://${NGINX_HOST}/;  # App fully works locally (without cache) when this commented out
+        #proxy_set_header       Host              $host;
+        #proxy_set_header       X-Real-IP         $remote_addr;
+        #proxy_set_header       X-Forwarded-For   $proxy_add_x_forwarded_for;
+        #proxy_set_header       X-Forwarded-Proto https;
+
         proxy_buffering        on;
         proxy_cache            STATIC;
         proxy_cache_valid      any  48h;
