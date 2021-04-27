@@ -9,7 +9,7 @@ services:
     depends_on:
       - backend
     ports:
-      - 80:80
+      - 8080:8080
       - 443:443
     environment:
       PROD: ${PROD}
@@ -32,7 +32,7 @@ services:
     depends_on:
       - blog_db
     ports:
-      - 1234:1234
+      - 9080:8080
     volumes:
       - ./data/certbot/conf/live/${API_URL}:/etc/certs
 
