@@ -8,7 +8,7 @@ FROM martinheinz/nginx-brotli as runner
 COPY --from=builder dist /home/html
 COPY site.conf brotli.conf prod.template /etc/nginx/conf.d/
 COPY nginx.conf .htpasswd /etc/nginx/
-EXPOSE 80
+EXPOSE 8008
 COPY startup.sh /home/
 RUN chmod 777 /home/startup.sh
 CMD ["sh", "/home/startup.sh"]

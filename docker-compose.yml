@@ -1,6 +1,24 @@
 version: '3'
 services:
-  frontend:
+  cache:
+    image: martinheinz/blog_cache:latest
+    build:
+      context: nginx-cache
+      dockerfile: Dockerfile
+    container_name: blog_cache
+    depends_on:
+      - origin
+    ports:
+      - 80:80
+      - 443:443
+    environment:
+      PROD: ${PROD}
+      NGINX_HOST: ${NGINX_HOST}
+      API_URL: localhost
+    volumes:
+      - ./data/certbot/conf:/etc/letsencrypt
+      - ./data/certbot/www:/var/www/certbot
+  origin:
     image: martinheinz/blog_frontend:latest
     build:
       context: .
@@ -8,18 +26,12 @@ services:
     container_name: blog_frontend
     depends_on:
       - backend
-    ports:
-      - 8080:8080
-      - 443:443
+    expose:
+      - 8008
     environment:
-#      PROD: 1
-      PROD: ${PROD}
-      NGINX_HOST: ${NGINX_HOST}
+      PROD: 1
       API_URL: localhost
-#      API_URL: ${API_URL}
     volumes:
-      - ./data/certbot/conf:/etc/letsencrypt
-      - ./data/certbot/www:/var/www/certbot
       - ${PWD}/rss.xml:/home/rss.xml
       - ${PWD}/sitemap.xml:/home/sitemap.xml
 
@@ -34,7 +46,7 @@ services:
     depends_on:
       - blog_db
     ports:
-      - 9080:8080
+      - 8080:8080
     volumes:
       - ./data/certbot/conf/live/${API_URL}:/etc/certs
 
@@ -50,8 +62,6 @@ services:
       - data:/var/lib/postgresql/data
     expose:
       - 5432
-    ports:
-      - 5431:5432
     environment:
       POSTGRES_USER: "postgres"
       POSTGRES_PASSWORD: "postgres"
