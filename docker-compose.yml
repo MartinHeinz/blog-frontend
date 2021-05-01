@@ -5,7 +5,7 @@ services:
     build:
       context: nginx-cache
       dockerfile: Dockerfile
-    container_name: blog_cache
+    container_name: cache
     depends_on:
       - origin
     ports:
@@ -23,7 +23,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    container_name: blog_frontend
+    container_name: frontend
     depends_on:
       - backend
     expose:
@@ -37,7 +37,7 @@ services:
 
   backend:
     image: martinheinz/blog_backend:latest
-    container_name: blog_backend
+    container_name: backend
     healthcheck:
         test: ["CMD", "curl", "-f", "backend"]
         interval: 30s
