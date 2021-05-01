@@ -9,6 +9,10 @@ server {
         try_files $uri $uri/ /index.html;
         root /home/html;
         auth_basic off;
+
+        expires           72h;
+        proxy_hide_header 'Cache-Control';
+        add_header        'Cache-Control' "public, max-age=259200";
     }
 
     location ~* \.(?:cur|jpe?g|gif|htc|ico|png|otf|ttf|eot|woff|woff2|svg)$ {
@@ -20,11 +24,21 @@ server {
         tcp_nodelay off;
     }
 
-    location ~* \.(?:css|js|html)$ {
+    location ~* \.(?:html)$ {
         root /home/html;
         access_log    off;
         add_header    Cache-Control public;
         expires       2h;
+
+        tcp_nodelay off;
+    }
+
+
+    location ~* \.(?:css|js)$ {
+        root /home/html;
+        access_log    off;
+        add_header    Cache-Control public;
+        expires       30d;
 
         tcp_nodelay off;
     }
