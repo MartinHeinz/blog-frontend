@@ -18,6 +18,9 @@ services:
     volumes:
       - ./data/certbot/conf:/etc/letsencrypt
       - ./data/certbot/www:/var/www/certbot
+      - ${PWD}/rss.xml:/home/rss.xml
+      - ${PWD}/sitemap.xml:/home/sitemap.xml
+      - ${PWD}/sitemap.xml:/home/newsletter.xml
   origin:
     image: martinheinz/blog_frontend:latest
     build:
@@ -34,7 +37,7 @@ services:
     volumes:
       - ${PWD}/rss.xml:/home/rss.xml
       - ${PWD}/sitemap.xml:/home/sitemap.xml
-
+      - ${PWD}/sitemap.xml:/home/newsletter.xml
   backend:
     image: martinheinz/blog_backend:latest
     container_name: backend

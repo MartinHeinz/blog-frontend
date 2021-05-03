@@ -46,4 +46,22 @@ server {
         proxy_ignore_headers   "Set-Cookie";
         proxy_hide_header      "Set-Cookie";
     }
+
+    location /rss {
+        expires -1;
+        index rss.xml;
+        alias /home;
+    }
+
+    location /newsletter {
+        expires -1;
+        index newsletter.xml;
+        alias /home;
+    }
+
+    location /sitemap {
+        expires -1;
+        index sitemap.xml;
+        alias /home;
+    }
 }

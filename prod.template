@@ -56,21 +56,6 @@ server {
         auth_basic_user_file /etc/nginx/.htpasswd;
     }
 
-    location /rss {
-        index rss.xml;
-        alias /home;
-    }
-
-    location /newsletter {
-        index newsletter.xml;
-        alias /home;
-    }
-
-    location /sitemap {
-        index sitemap.xml;
-        alias /home;
-    }
-
     # robots.txt file generated on the fly
     location /robots.txt {
         return 200 "User-agent: *\nDisallow: \n\nUser-agent: *\nDisallow: /api/v1/";
