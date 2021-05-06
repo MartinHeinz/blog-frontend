@@ -437,7 +437,7 @@ body td {
 @font-face {
     font-style: normal;
     font-family: "Meslo LG";
-    src: local("Meslo LG S"), url("./MesloLGS-Regular.woff2") format("woff2");
+    src: local("Meslo LG S"), url("./MesloLGS-Regular.woff2") format("woff2"), url("./MesloLGS-Regular.woff") format("woff");
     font-display: swap;
     unicode-range: U+000-5FF;
 }
