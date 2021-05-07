@@ -62,7 +62,7 @@ export default {
         color: #c9cacc;
         font-weight: 400;
         font-size: 14px;
-        font-family: "Menlo", "Meslo LG", monospace;
+        font-family: 'Oxygen', monospace;
         line-height: 1.725;
         text-rendering: geometricPrecision;
         flex: 1;

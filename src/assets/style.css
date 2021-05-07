@@ -436,8 +436,8 @@ body td {
 }
 @font-face {
     font-style: normal;
-    font-family: "Meslo LG";
-    src: local("Meslo LG S"), url("./MesloLGS-Regular.woff2") format("woff2"), url("./MesloLGS-Regular.woff") format("woff");
+    font-family: "Oxygen";
+    src: local("Oxygen"), url("./OxygenMono-Regular.woff2") format("woff2");
     font-display: swap;
     unicode-range: U+000-5FF;
 }
@@ -453,7 +453,7 @@ body {
     font-display: swap;
     font-weight: 400;
     font-size: 14px;
-    font-family: "Menlo", "Meslo LG", monospace;
+    font-family: 'Oxygen', monospace;
     line-height: 1.725;
     text-rendering: geometricPrecision;
     flex: 1;
@@ -1051,7 +1051,7 @@ pre code {
 .inline {
     overflow-x: auto;
     font-size: 13px;
-    font-family: "Menlo", "Meslo LG", monospace;
+    font-family: 'Oxygen', monospace;
     line-height: 22px;
     padding: 0 5px;
     background: #212326;

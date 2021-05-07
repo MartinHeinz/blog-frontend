@@ -7,7 +7,9 @@ const VuetifyLoaderPlugin = require('vuetify-loader/lib/plugin');
 module.exports = {
     configureWebpack: {
         plugins: [
-            new FontPreloadPlugin(),
+            new FontPreloadPlugin({
+                extensions: ['woff2'],
+            }),
             // new BundleAnalyzerPlugin(),
             new VuetifyLoaderPlugin(),
         ],
